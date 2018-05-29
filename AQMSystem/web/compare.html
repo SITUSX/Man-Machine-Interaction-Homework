@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AQM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
+          type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/searchList.css">
+    <!-- React JS -->
+
+    <link rel="stylesheet" href="css/sweet-alert.css">
+
+    <script src="https://unpkg.com/react@15.5.4/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.js"></script>
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/echarts.js"></script>
+    <script src="js/jquery.js"></script>
+
+    <script src="js/sweet-alert.js"></script>
+
+    <script type="text/babel" src="feature_js/search_list.js"></script>
+    <script type="text/babel" src="feature_js/compare.js"></script>
+
+</head>
+<body>
+
+<div class="fh5co-loader"></div>
+<div id="page">
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div id="fh5co-logo"><a href="home.html"
+                                            style="font-size:3.75em;font-weight:normal">AQM<span>.</span></a></div>
+                </div>
+                <div class="col-xs-12 text-center menu-1">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="personal.html">Personal</a>
+                        </li>
+
+                        <li><a href="individual.html">Individual</a></li>
+                        <li class="has-dropdown">
+                            <a href="market.html">Market</a>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="strategy.html">Strategy</a>
+                        </li>
+                        <li class="active"><a href="compare.html">Compare</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header id="fh5co-header" class="fh5co-cover" role="banner"
+            style="background-image:url(images/img_background.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                            <h1 class="mb30">Compare Stocks</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="fh5co-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-push-0 animate-box">
+                    <div class="fh5co-contact-info">
+                        <h3 class="text-info icon-text"> Information</h3>
+                        <div class="row form-group">
+                            <div class="col-md-3 icon-align-center text-center">
+                                <label>First Stock:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <div id="list_root_one"></div>
+                            </div>
+                            <div class="col-md-3 icon-align-center text-center">
+                                <label>Second Stock:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <!--<input type="text" class="form-control" list = "slist" id="second_stock_name" placeholder=" code" value="000002 万 科A">-->
+                                <!--<datalist id = "slist"></datalist>-->
+
+                                <div id="list_root_two"></div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row form-group">
+                            <div class="col-md-3 icon-calendar text-center">
+                                <label>Start Date:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" value="2017-01-01" id="start"/>
+                            </div>
+                            <div class="col-md-3 icon-calendar text-center">
+                                <label>Final Date:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" value="2017-05-31" id="final"/>
+                            </div>
+                        </div>
+
+                        <hr width="0px">
+                        <div class="col-md-5"></div>
+                        <button type="submit" class="btn btn-primary" id="compare">Compare</button>
+                    </div>
+                </div>
+
+
+                <style>
+                    #table {
+                        margin: 0px auto;
+                        width: 90%; /* 必须制定宽度 */
+                        height: 20%;
+                    }
+                </style>
+
+                <div class="animate-box">
+                    <h3 class="text-info icon-line-graph"> Details</h3>
+                    <table class="table" id="table">
+                        <tr>
+                            <th class="text-center">Stock Name</th>
+                            <th class="text-center">Min Price</th>
+                            <th class="text-center">Max Price</th>
+                            <th class="text-center">Change</th>
+                            <th class="text-center">Variance of LogReturn</th>
+                        </tr>
+                        <tr class="text-center">
+                            <td><label id="fname">-</label></td>
+                            <td><label id="fmin">-</label></td>
+                            <td><label id="fmax">-</label></td>
+                            <td><label id="fchange">-</label></td>
+                            <td><label id="flog">-</label></td>
+                        </tr>
+                        <tr class="text-center">
+                            <td><label id="sname">-</label></td>
+                            <td><label id="smin">-</label></td>
+                            <td><label id="smax">-</label></td>
+                            <td><label id="schange">-</label></td>
+                            <td><label id="slog">-</label></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr width="0px">
+
+        <div class="container">
+            <div class="row animate-box">
+                <div class="fh5co-heading">
+                    <div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <h3 class="text-info">Proportion</h3>
+                            <span><label id="first_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>
+                                与<label id="second_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>股票数据比值</span>
+                            <div id="proportion" style="width: 800px; height: 475px; alignment: center">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-info">Closing Price</h3>
+                        <span>收盘价对比</span>
+                        <div id="close" style="width: 500px;height: 400px;">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-info">Log Return</h3>
+                        <span>对数收益率对比</span>
+                        <div id="log" style="width: 500px;height: 400px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="fh5co-footer" role="contentinfo">
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <small class="block">Copyright &copy; Nanjing University
+                        </small>
+                    </p>
+                    <p>
+                    <ul class="fh5co-social-icons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<script type="text/babel">
+    pre_load();
+    compare();
+</script>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- countTo -->
+<script src="js/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
+

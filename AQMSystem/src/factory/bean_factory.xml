@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="bl blservice dao dataservice"/>
+
+    <!-- 读取配置文件到Spring容器中 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="maxPoolSize" value="64"/>
+        <property name="minPoolSize" value="2"/>
+        <!--<property name="testConnectionOnCheckout" value="true"/>-->
+        <property name="testConnectionOnCheckin" value="true"/>
+        <property name="idleConnectionTestPeriod" value="300"/>
+        <property name="maxIdleTime" value="3600"/>
+    </bean>
+
+    <!-- 配置SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>model.Block</value>
+                <value>model.Stock</value>
+                <value>model.KData</value>
+                <value>model.User</value>
+                <value>model.Newest</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

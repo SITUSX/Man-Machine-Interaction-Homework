@@ -1,0 +1,1054 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AQM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
+          type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/sweet-alert.css">
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/cs-select.css"/>
+    <link rel="stylesheet" href="css/cs-skin-underline.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/sweet-alert.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="feature_js/strategy.js"></script>
+
+    <style type="text/css">
+        .selectPlate {
+            margin-left: 15%;
+            margin-bottom: 2%;
+            height: 65px;
+            width: 1200px;
+            z-index: 0;
+            display: none;
+        }
+
+        .selectOption {
+            margin-left: 15%;
+            margin-bottom: 10%;
+            height: 145px;
+            width: 1200px;
+            z-index: 0;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="fh5co-loader"></div>
+
+<div id="page">
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div id="fh5co-logo"><a href="home.html"
+                                            style="font-size:3.75em;font-weight:normal">AQM<span>.</span></a></div>
+                </div>
+                <div class="col-xs-12 text-center menu-1">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="personal.html">Personal</a>
+                        </li>
+
+                        <li><a href="individual.html">Individual</a></li>
+                        <li class="has-dropdown">
+                            <a href="market.html">Market</a>
+                        </li>
+                        <li class="has-dropdown active">
+                            <a href="strategy.html">Strategy</a>
+                            <ul class="dropdown">
+                                <li><a href="#mean">Mean</a></li>
+                                <li><a href="#momentum">Momentum</a></li>
+                                <li><a href="#reverse">Reverse</a></li>
+                                <li><a href="#min_variance">Minimum Variance</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="compare.html">Compare</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="fh5co-header" class="fh5co-cover" role="banner"
+            style="background-image:url(images/img_background.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                            <h1 class="mb30">Our Strategy</h1>
+                            <h2 style="-webkit-text-fill-color: white; margin-left: 45%">
+                                -- give you a better choice</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="fh5co-blog" class="fh5co-bg-section">
+        <div class="container" id="mean">
+            <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>- Mean -</h2>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-info icon-text"> Information <button class="btn-link" onclick="showHelp()">?</button>
+                </h3>
+                <script>
+                    function showHelp() {
+                    swal({
+                            title:" 均值回归(Mean Reversion)",
+                            text :"计算形成期股票池中每个股票的复权收盘价和5、10、20日均线的偏离度，偏离度计算：如果用P代表现在的股价，用MA代表均线的价格，那么这个度量是 (MA-P)&#47MA。每次选出偏离度最大的前20%股票持有"}
+                    )
+                }</script>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3">
+                    <label>Choose Stock Pool : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="mean_stock_pool" value="all" checked onclick="divHide()">
+                    All Stock
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="mean_stock_pool" value="plate" onclick="divShowPlate()">
+                    Stock Plate
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="mean_stock_pool" value="optional" onclick="divShowOption()">
+                    Optional
+                </div>
+
+                <hr width="1000">
+                <!--DIV 默认隐藏-->
+
+                <div id="plateDIV" class="selectPlate">
+                    <div>
+                        <label>Choose plate : </label>
+                        <select id="mean_plate" style="margin-left: 20%;" class="cs-select cs-skin-underline">
+                            <option id="motherboard">Motherboard</option>
+                            <option id="gem">Gem</option>
+                            <option id="small">Small</option>
+                            <option id="location">Location</option>
+                            <option id="industry">Industry</option>
+                            <option id="conception">Conception</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="option" class="selectOption">
+                    <div class="col-md-2">
+                        <label>Stock Volume : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum volume" id="mean_min_volume">
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-2">
+                        <label style="margin-top: 12px">Stock Price : </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="mean_zero_price">0 ~ 20</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="mean_twenty_price">20 ~ 40</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="mean_fourty_price">40 ~ 60</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="mean_sixty_price">60 ~ 80</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="mean_eighty_price"> >= 80</input>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-2">
+                        <label style="margin-top: 5%">Change : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum change percent"
+                               id="mean_min_range">
+                    </div>
+                    <div class="col-md-7">
+                        <label style="-webkit-text-fill-color: grey; font-size: 20px; margin-top: 12px">%</label>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-5">
+                        <label>You choose : </label>
+                        <label id="mean_stock_num"></label>
+                        <label>stocks .</label>
+                    </div>
+                </div>
+
+                <script>
+                    //显示 div
+                    function divShowPlate() {
+                        let showPlate = document.getElementById("plateDIV");
+                        showPlate.style.display = 'inline-block';
+                        let hideOption = document.getElementById("option");
+                        hideOption.style.display = 'none';
+                    }
+                    function divShowOption() {
+                        let hidePlate = document.getElementById("plateDIV");
+                        hidePlate.style.display = 'none';
+                        let showOption = document.getElementById("option");
+                        showOption.style.display = 'inline-block';
+                    }
+
+                    //隐藏 div
+                    function divHide() {
+                        let hidePlate = document.getElementById("plateDIV");
+                        hidePlate.style.display = 'none';
+                        let hideOption = document.getElementById("option");
+                        hideOption.style.display = 'none';
+                    }
+                </script>
+                <!--End DIV 默认隐藏-->
+                <div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <label>Forming Period : </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="radio" class="radio" name="forming_period" value="5" checked> 5 days
+                    </div>
+                    <div class="col-md-2">
+                        <input type="radio" class="radio" name="forming_period" value="10"> 10 days
+                    </div>
+                    <div class="col-md-4">
+                        <input type="radio" class="radio" name="forming_period" value="20"> 20 days
+                    </div>
+
+                    <hr width="0">
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <label>Holding Period : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="mean_holding" type="range" min="1" max="100" step="1" value="20">
+                        <label id="mean_holding_value">20</label>
+                    </div>
+                    <script>
+                        $("#mean_holding").change(function () {
+                            $("#mean_holding_value").text($(this).val());
+                        });
+                    </script>
+
+                    <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
+
+                    <div class="col-md-2 icon-calendar text-center">
+                        <label>Start Date:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input id="mean_start" type="date" value="2017-01-01"/>
+                    </div>
+                    <div class="col-md-2 icon-calendar text-center">
+                        <label>Final Date:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input id="mean_final" type="date" value="2017-05-30"/>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <input id="mean_check" type="submit" class="btn btn-primary" value="Check">
+            </div>
+            <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
+            <style>
+                #mean_table {
+                    margin: 0px auto;
+                    width: 90%; /* 必须制定宽度 */
+                    height: 20%;
+                }
+            </style>
+
+            <div class="animate-box">
+                <h3 class="text-info icon-book"> Details</h3>
+                <table class="table" id="mean_table">
+                    <tr>
+                        <th class="text-center">Annualized Return</th>
+                        <th class="text-center">Benchmark Annualized Return</th>
+                        <th class="text-center">Alpha</th>
+                        <th class="text-center">Beta</th>
+                        <th class="text-center">Sharpe</th>
+                        <th class="text-center">Win Rate</th>
+                        <th class="text-center">Max Drawdown</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td><label id="meanAR">-</label></td>
+                        <td><label id="meanBAR">-</label></td>
+                        <td><label id="meanA">-</label></td>
+                        <td><label id="meanB">-</label></td>
+                        <td><label id="meanS">-</label></td>
+                        <td><label id="meanWR">-</label></td>
+                        <td><label id="meanMD">-</label></td>
+                    </tr>
+                </table>
+            </div>
+            <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
+            <div class="col-md-6 icon-line-graph">
+                <h3 class="text-info">Yield Curve</h3>
+                <span>收益率曲线</span>
+                <div style="height: 400px; width: 570px;" id="meanReturn">
+                </div>
+            </div>
+            <div class="col-md-6 icon-bar-graph">
+                <h3 class="text-info">Revenue Distribution Histogram</h3>
+                <span>收益分布直方图</span>
+                <div style="width: 570px; height: 400px;" id="meanBarReturn">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-started">
+        <div class="container" id="momentum">
+            <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>- Momentum -</h2>
+                </div>
+            </div>
+            <div style="-webkit-text-fill-color: rgba(223,223,223,0.8)">
+                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Information<button class="btn-link" onclick="showMomHelp()">?</button>
+                </h3>
+                <script>
+                    function showMomHelp() {
+                        swal({
+                            title:" 动量策略(Monmentum)",
+                            text :"价格动量是指价格变化的速度，或一段时间内价格的变化率。正的价格动量告诉我们，某只股票买家数量正在不断增加，目前需求超过供应；相反，负的价格动量则告诉我们股票的卖家数量正显著增加，供应超过需求。在一般情况下，我们预期表现最好的股票将会继续表现强劲，而表现最差的将继续表现不佳每次选出价格动量最大的前20%股票持有。"
+                        }
+                        )
+                    }</script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Choose Stock Pool : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="momentum_stock_pool" value="all" checked
+                           onclick="divHideMom()"> All Stock
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="momentum_stock_pool" value="plate"
+                           onclick="divShowPlateMom()"> Stock Plate
+                </div>
+                <div class="col-md-5">
+                    <input type="radio" class="radio" name="momentum_stock_pool" value="optional"
+                           onclick="divShowOptionMom()"> Optional
+                </div>
+
+                <hr width="0" style="border-top:2px dotted rgb(63, 74, 78)">
+
+                <div id="plateMom" class="selectPlate">
+                    <div>
+                        <label>Choose plate : </label>
+                        <select id="momentum_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
+                            <option id="motherboardMom">Motherboard</option>
+                            <option id="gemMom">Gem</option>
+                            <option id="smallMom">Small</option>
+                            <option id="locationMom">Location</option>
+                            <option id="industryMom">Industry</option>
+                            <option id="conceptionMom">Conception</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="optionMom" class="selectOption">
+                    <div class="col-md-2">
+                        <label>Stock Volume : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum volume" id="momentum_min_volume">
+                    </div>
+                    <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+                    <div class="col-md-2">
+                        <label style="margin-top: 12px">Stock Price : </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="momentum_zero_price">0 ~ 20</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="momentum_twenty_price">20 ~ 40</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="momentum_fourty_price">40 ~ 60</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="momentum_sixty_price">60 ~ 80</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="momentum_eighty_price"> >= 80</input>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-2">
+                        <label style="margin-top: 5%">Change : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum change percent"
+                               id="momentum_min_range">
+                    </div>
+                    <div class="col-md-7">
+                        <label style="-webkit-text-fill-color: grey; font-size: 20px; margin-top: 12px">%</label>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-5">
+                        <label>You choose : </label>
+                        <label id="momentum_stock_num"></label>
+                        <label>stocks .</label>
+                    </div>
+                </div>
+
+                <script>
+                    //显示 div
+                    function divShowPlateMom() {
+                        let showPlate = document.getElementById("plateMom");
+                        showPlate.style.display = 'inline-block';
+                        let hideOption = document.getElementById("optionMom");
+                        hideOption.style.display = 'none';
+                    }
+                    function divShowOptionMom() {
+                        let hidePlate = document.getElementById("plateMom");
+                        hidePlate.style.display = 'none';
+                        let showOption = document.getElementById("optionMom");
+                        showOption.style.display = 'inline-block';
+                    }
+
+                    //隐藏 div
+                    function divHideMom() {
+                        let hidePlate = document.getElementById("plateMom");
+                        hidePlate.style.display = 'none';
+                        let hideOption = document.getElementById("optionMom");
+                        hideOption.style.display = 'none';
+                    }
+                </script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Forming Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="momentum_forming" type="range" min="1" max="100" step="1" value="20">
+                    <label id="momentum_forming_value">20</label>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Holding Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="momentum_holding" type="range" min="1" max="100" step="1" value="20">
+                    <label id="momentum_holding_value">20</label>
+                </div>
+                <script>
+                    $("#momentum_forming").change(function () {
+                        $("#momentum_forming_value").text($(this).val());
+                    });
+                    $("#momentum_holding").change(function () {
+                        $("#momentum_holding_value").text($(this).val());
+                    });
+                </script>
+
+                <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Start Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="momentum_start" type="date" value="2017-01-01"/>
+                </div>
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Final Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="momentum_final" type="date" value="2017-05-30"/>
+                </div>
+            </div>
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <input id="momentum_check" type="submit" class="btn" value="Check">
+            </div>
+
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <style>
+                #table {
+                    margin: 0px auto;
+                    width: 90%; /* 必须制定宽度 */
+                    height: 20%;
+                    -webkit-text-fill-color: rgba(248, 248, 248, 0.8);
+                }
+            </style>
+
+            <div class="animate-box">
+                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Details</h3>
+                <table class="table" id="momentum_table">
+                    <tr>
+                        <th class="text-center">Annualized Return</th>
+                        <th class="text-center">Benchmark Annualized Return</th>
+                        <th class="text-center">Alpha</th>
+                        <th class="text-center">Beta</th>
+                        <th class="text-center">Sharpe</th>
+                        <th class="text-center">Win Rate</th>
+                        <th class="text-center">Max Drawdown</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td><label id="momentumAR">-</label></td>
+                        <td><label id="momentumBAR">-</label></td>
+                        <td><label id="momentumA">-</label></td>
+                        <td><label id="momentumB">-</label></td>
+                        <td><label id="momentumS">-</label></td>
+                        <td><label id="momentumWR">-</label></td>
+                        <td><label id="momentumMD">-</label></td>
+                    </tr>
+                </table>
+            </div>
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <div class="col-md-6 icon-line-graph" style="-webkit-text-fill-color: white">
+                <h3 class="text-info">Yield Curve</h3>
+                <span>收益率曲线</span>
+                <div style="width: 570px; height: 400px;" id="momReturn">
+                </div>
+            </div>
+            <div class="col-md-6 icon-bar-graph" style="-webkit-text-fill-color: white">
+                <h3 class="text-info">Revenue Distribution Histogram</h3>
+                <span>收益分布直方图</span>
+                <div style="width: 570px; height: 400px;" id="momBarReturn">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fh5co-bg-section">
+        <div class="container" id="reverse">
+            <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>- Reverse -</h2>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-info icon-text"> Information<button class="btn-link" onclick="showREVHelp()">?</button>
+                </h3>
+                <script>
+                    function showREVHelp() {
+                        swal({
+                                title:" 反向策略（Reverse)",
+                                text :"与动量策略相反，我们预期表现最差的股票可能在之后会出现回升，而表现最好的极有可能会表现不佳。反向策略在较短回测期和较长回测期均表现良好。每次选出价格动量最低的前20%股票持有。"
+                            }
+                        )
+                    }</script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Choose Stock Pool : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="reverse_stock_pool" value="all" checked
+                           onclick="divHideRev()"> All Stock
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="reverse_stock_pool" value="plate"
+                           onclick="divShowPlateRev()"> Stock Plate
+                </div>
+                <div class="col-md-5">
+                    <input type="radio" class="radio" name="reverse_stock_pool" value="optional"
+                           onclick="divShowOptionRev()"> Optional
+                </div>
+
+                <hr width="0">
+
+                <div id="plateRev" class="selectPlate">
+                    <div>
+                        <label>Choose plate : </label>
+                        <select id="reserve_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
+                            <option id="motherboardRev">Motherboard</option>
+                            <option id="gemRev">Gem</option>
+                            <option id="smallRev">Small</option>
+                            <option id="locationRev">Location</option>
+                            <option id="industryRev">Industry</option>
+                            <option id="conceptionRev">Conception</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="optionRev" class="selectOption">
+                    <div class="col-md-2">
+                        <label>Stock Volume : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum volume" id="reverse_min_volume">
+                    </div>
+                    <hr width="1000px">
+                    <div class="col-md-2">
+                        <label>Stock Price : </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="reverse_zero_price">0 ~ 20</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="reverse_twenty_price">20 ~ 40</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="reverse_fourty_price">40 ~ 60</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="reverse_sixty_price">60 ~ 80</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="reverse_eighty_price"> >= 80</input>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-2">
+                        <label style="margin-top: 5%">Change : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum change percent"
+                               id="reverse_min_range">
+                    </div>
+                    <div class="col-md-7">
+                        <label style="-webkit-text-fill-color: grey; font-size: 20px; margin-top: 12px">%</label>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-5">
+                        <label>You choose : </label>
+                        <label id="reverse_stock_num"></label>
+                        <label>stocks .</label>
+                    </div>
+                </div>
+
+                <script>
+                    //显示 div
+                    function divShowPlateRev() {
+                        let showPlate = document.getElementById("plateRev");
+                        showPlate.style.display = 'inline-block';
+                        let hideOption = document.getElementById("optionRev");
+                        hideOption.style.display = 'none';
+                    }
+                    function divShowOptionRev() {
+                        let hidePlate = document.getElementById("plateRev");
+                        hidePlate.style.display = 'none';
+                        let showOption = document.getElementById("optionRev");
+                        showOption.style.display = 'inline-block';
+                    }
+
+                    //隐藏 div
+                    function divHideRev() {
+                        let hidePlate = document.getElementById("plateRev");
+                        hidePlate.style.display = 'none';
+                        let hideOption = document.getElementById("optionRev");
+                        hideOption.style.display = 'none';
+                    }
+                </script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Forming Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="reverse_forming" type="range" min="1" max="100" step="1" value="20">
+                    <label id="reverse_forming_value">20</label>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Holding Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="reverse_holding" type="range" min="1" max="100" step="1" value="20">
+                    <label id="reverse_holding_value">20</label>
+                </div>
+                <script>
+                    $("#reverse_forming").change(function () {
+                        $("#reverse_forming_value").text($(this).val());
+                    });
+                    $("#reverse_holding").change(function () {
+                        $("#reverse_holding_value").text($(this).val());
+                    });
+                </script>
+
+                <hr width="1000px">
+
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Start Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="reverse_start" type="date" value="2017-01-01"/>
+                </div>
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Final Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="reverse_final" type="date" value="2017-05-30"/>
+                </div>
+            </div>
+            <hr width="1000px">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <input id="reverse_check" type="submit" class="btn btn-primary" value="Check">
+            </div>
+
+            <hr width="1000px">
+            <style>
+                #table {
+                    margin: 0px auto;
+                    width: 90%; /* 必须制定宽度 */
+                    height: 20%;
+                    -webkit-text-fill-color: rgba(248, 248, 248, 0.8);
+                }
+            </style>
+
+            <div class="animate-box">
+                <h3 class="icon-book text-info"> Details</h3>
+                <table class="table" id="rev_table">
+                    <tr>
+                        <th class="text-center">Annualized Return</th>
+                        <th class="text-center">Benchmark Annualized Return</th>
+                        <th class="text-center">Alpha</th>
+                        <th class="text-center">Beta</th>
+                        <th class="text-center">Sharpe</th>
+                        <th class="text-center">Win Rate</th>
+                        <th class="text-center">Max Drawdown</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td><label id="reverseAR">-</label></td>
+                        <td><label id="reverseBAR">-</label></td>
+                        <td><label id="reverseA">-</label></td>
+                        <td><label id="reverseB">-</label></td>
+                        <td><label id="reverseS">-</label></td>
+                        <td><label id="reverseWR">-</label></td>
+                        <td><label id="reverseMD">-</label></td>
+                    </tr>
+                </table>
+            </div>
+            <hr width="1000px">
+            <div class="col-md-6 icon-line-graph">
+                <h3 class="text-info">Yield Curve</h3>
+                <span>收益率曲线</span>
+                <div style="width: 570px; height: 400px;" id="revReturn">
+                </div>
+            </div>
+            <div class="col-md-6 icon-bar-graph">
+                <h3 class="text-info">Revenue Distribution Histogram</h3>
+                <span>收益分布直方图</span>
+                <div style="width: 570px; height: 400px;" id="revBarReturn">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fh6co-started">
+        <div class="container" id="min_variance">
+            <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>- Minimum Variance -</h2>
+                </div>
+            </div>
+            <div style="-webkit-text-fill-color: rgba(223,223,223,0.8)">
+                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Information<button class="btn-link" onclick="showMINHelp()">?</button>
+                </h3>
+                <script>
+                    function showMINHelp() {
+                        swal({
+                                title:"最小方差(Minimum Variance)",
+                                text :"最小方差策略选出形成期复权收盘价方差最小的股票作为持有。我们认为这样的股票表现较为稳定，价格波动较小，不易出现大幅下跌的情况。最小方差在大盘急剧下跌的情况下表现良好。"
+                            }
+                        )
+                    }</script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Choose Stock Pool : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="minimum_stock_pool" value="all" checked
+                           onclick="divHideMin()"> All Stock
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" class="radio" name="minimun_stock_pool" value="plate"
+                           onclick="divShowPlateMin()"> Stock Plate
+                </div>
+                <div class="col-md-5">
+                    <input type="radio" class="radio" name="minimum_stock_pool" value="optional"
+                           onclick="divShowOptionMin()"> Optional
+                </div>
+
+                <hr width="0" style="border-top:2px dotted rgb(63, 74, 78)">
+
+                <div id="plateMin" class="selectPlate">
+                    <div>
+                        <label>Choose plate : </label>
+                        <select id="minimum_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
+                            <option id="motherboardMin">Motherboard</option>
+                            <option id="gemMin">Gem</option>
+                            <option id="smallMin">Small</option>
+                            <option id="locationMin">Location</option>
+                            <option id="industryMin">Industry</option>
+                            <option id="conceptionMin">Conception</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="optionMin" class="selectOption">
+                    <div class="col-md-2">
+                        <label>Stock Volume : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum volume" id="minimum_min_volume">
+                    </div>
+                    <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+                    <div class="col-md-2">
+                        <label>Stock Price : </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="minimum_zero_price">0 ~ 20</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="minimum_twenty_price">20 ~ 40</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="minimum_fourty_price">40 ~ 60</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="minimum_sixty_price">60 ~ 80</input>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="checkbox" id="minimum_eighty_price"> >= 80</input>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-2">
+                        <label style="margin-top: 5%">Change : </label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="minimum change percent"
+                               id="minimum_min_range">
+                    </div>
+                    <div class="col-md-7">
+                        <label style="-webkit-text-fill-color: grey; font-size: 20px; margin-top: 12px">%</label>
+                    </div>
+                    <hr width="1000">
+                    <div class="col-md-5">
+                        <label>You choose : </label>
+                        <label id="minimum_stock_num"></label>
+                        <label>stocks .</label>
+                    </div>
+                </div>
+
+                <script>
+                    //显示 div
+                    function divShowPlateMin() {
+                        let showPlate = document.getElementById("plateMin");
+                        showPlate.style.display = 'inline-block';
+                        let hideOption = document.getElementById("optionMin");
+                        hideOption.style.display = 'none';
+                    }
+                    function divShowOptionMin() {
+                        let hidePlate = document.getElementById("plateMin");
+                        hidePlate.style.display = 'none';
+                        let showOption = document.getElementById("optionMin");
+                        showOption.style.display = 'inline-block';
+                    }
+
+                    //隐藏 div
+                    function divHideMin() {
+                        let hidePlate = document.getElementById("plateMin");
+                        hidePlate.style.display = 'none';
+                        let hideOption = document.getElementById("optionMin");
+                        hideOption.style.display = 'none';
+                    }
+                </script>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Forming Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="minimum_forming" type="range" min="1" max="100" step="1" value="20">
+                    <label id="minimum_forming_value">20</label>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <label>Holding Period : </label>
+                </div>
+                <div class="col-md-2">
+                    <input id="minimum_holding" type="range" min="1" max="100" step="1" value="20">
+                    <label id="minimum_holding_value">20</label>
+                </div>
+                <script>
+                    $("#minimum_forming").change(function () {
+                        $("#minimum_forming_value").text($(this).val());
+                    });
+                    $("#minimum_holding").change(function () {
+                        $("#minimum_holding_value").text($(this).val());
+                    });
+                </script>
+
+                <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Start Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="minimum_start" type="date" value="2017-01-01"/>
+                </div>
+                <div class="col-md-2 icon-calendar text-center">
+                    <label>Final Date:</label>
+                </div>
+                <div class="col-md-4">
+                    <input id="minimum_final" type="date" value="2017-05-30"/>
+                </div>
+            </div>
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <input id="minimum_check" type="submit" class="btn" value="Check">
+            </div>
+
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <style>
+                #table {
+                    margin: 0px auto;
+                    width: 90%; /* 必须制定宽度 */
+                    height: 20%;
+                    -webkit-text-fill-color: rgba(248, 248, 248, 0.8);
+                }
+            </style>
+
+            <div class="animate-box">
+                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Details</h3>
+                <table class="table" id="min_table">
+                    <tr>
+                        <th class="text-center">Annualized Return</th>
+                        <th class="text-center">Benchmark Annualized Return</th>
+                        <th class="text-center">Alpha</th>
+                        <th class="text-center">Beta</th>
+                        <th class="text-center">Sharpe</th>
+                        <th class="text-center">Win Rate</th>
+                        <th class="text-center">Max Drawdown</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td><label id="minimumAR">-</label></td>
+                        <td><label id="minimumBAR">-</label></td>
+                        <td><label id="minimumA">-</label></td>
+                        <td><label id="minimumB">-</label></td>
+                        <td><label id="minimumS">-</label></td>
+                        <td><label id="minimumWR">-</label></td>
+                        <td><label id="minimumMD">-</label></td>
+                    </tr>
+                </table>
+            </div>
+            <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
+            <div class="col-md-6 icon-line-graph" style="-webkit-text-fill-color: white">
+                <h3 class="text-info">Yield Curve</h3>
+                <span>收益率曲线</span>
+                <div style="width: 570px; height: 400px;" id="minReturn">
+                </div>
+            </div>
+            <div class="col-md-6 icon-bar-graph" style="-webkit-text-fill-color: white">
+                <h3 class="text-info">Revenue Distribution Histogram</h3>
+                <span>收益分布直方图</span>
+                <div style="width: 570px; height: 400px;" id="minBarReturn">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="fh5co-footer" role="contentinfo">
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <small class="block">Copyright &copy; Nanjing University
+                        </small>
+                    </p>
+                    <p>
+                    <ul class="fh5co-social-icons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- countTo -->
+<script src="js/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
+<script src="feature_js/classie.js"></script>
+<script src="feature_js/selectFx.js"></script>
+<script>
+    (function () {
+        [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+            new SelectFx(el);
+        });
+    })();
+</script>
+</body>
+</html>
+

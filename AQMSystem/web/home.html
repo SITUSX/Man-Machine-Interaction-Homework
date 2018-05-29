@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AQM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <meta http-equiv="refresh" content="275">
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
+          type='text/css'>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/sweet-alert.css">
+
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="feature_js/util.js"></script>
+
+    <script src="js/sweet-alert.js"></script>
+
+    <script src="js/echarts.js"></script>
+    <script src="js/jquery.js"></script>
+
+    <script src="feature_js/home.js"></script>
+
+</head>
+<body>
+
+<div class="fh5co-loader"></div>
+
+<div id="page">
+    <!-- menu -->
+    <nav class="fh5co-nav" role="navigation">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div id="log" style="margin-left: 80%">
+                        <div id="login_signup">
+                            <a href="login.html" class="btn btn-link link-watch popup-vimeo"> Login </a>
+                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> Join us </a>
+                        </div>
+                    </div>
+
+                    <div id="welcome" style="margin-left: 75%">
+                        <label style="-webkit-text-fill-color: white">welcome ,</label>
+                        <label id="user" style="-webkit-text-fill-color: rgb(195,228,242)"></label>
+                        <label style="-webkit-text-fill-color: white">!</label>
+                        <button class="btn btn-logout" id="logout"> Logout </button>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 text-center">
+                    <div id="fh5co-logo"><a href="home.html" style="font-size:3.75em;font-weight:normal">AQM<span>.</span></a></div>
+                </div>
+                <div class="col-xs-12 text-center menu-1">
+                    <ul>
+                        <li class="active"><a href="home.html">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="personal.html">Personal</a>
+                        </li>
+
+                        <li><a href="individual.html">Individual</a></li>
+                        <li class="has-dropdown">
+                            <a href="market.html">Market</a>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="strategy.html">Strategy</a>
+                        </li>
+                        <li><a href="compare.html">Compare</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_background.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                            <h1 class="mb30">Best Choice For You .</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="fh5co-services" class="fh5co-bg-section">
+        <div class="container">
+            <h3 class="text-info">Market</h3>
+            <span>大盘走向</span>
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <button id = "sh" class="btn btn-link">上证指数</button>
+                </div>
+                <div class="col-md-2">
+                    <button id = "sz" class="btn btn-link">深圳成指</button>
+                </div>
+                <div class="col-md-2">
+                    <button id = "hs300" class="btn btn-link">沪深300</button>
+                </div>
+                <div class="col-md-2">
+                    <button id = "zxb" class="btn btn-link">中小板指</button>
+                </div>
+                <div class="col-md-2">
+                    <button id = "cyb" class="btn btn-link">创业板指</button>
+                </div>
+                <hr width="100">
+                <div class="col-md-3 text-center">
+                    <label for="start" class="icon-calendar text-center">Start Date : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" id = "start" value="2017-01-01">
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="final" class="icon-calendar">Final Date : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" id = "final" value="2017-05-31">
+                </div>
+                <div class="col-md-2 text-center">
+                    <button id = "draw" class="btn bg-primary"> Draw </button>
+                </div>
+
+                <h4 id = "name" style = "-webkit-text-fill-color: rgb(143, 143,225); margin-left: 20%">name</h4>
+                <div style="width: 1000px;height: 500px" class="center-block" id = "market">
+                </div>
+            </div>
+
+            <hr>
+            <div id = "pie">
+                <div>
+                    <div style="width: 1100px; height: 475px" id = "industryChart"></div>
+                    <hr>
+                    <div style="width: 1100px; height: 475px" id = "areaChart"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <br \>
+                    <h4><strong>AQM System</strong>
+                    </h4>
+                    <p>Jiangsu Province China
+                        <br>Nanjing University</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i>150-6227-8989</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">979579683@qq.com</a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Nanjing University</p>
+
+                    <ul class="fh5co-social-icons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+</div>
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- countTo -->
+<script src="js/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="js/main.js"></script>
+<script>
+    analyseMarket("SSE");
+    pieChartPaint();
+</script>
+</body>
+</html>
+

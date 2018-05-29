@@ -1,0 +1,7 @@
+*.iml
+*/.idea/*
+*/out/*
+*/target/*
+.idea/*
+node_modules/*
+*/lib/*
