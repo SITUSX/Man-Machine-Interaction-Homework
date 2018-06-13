@@ -47,6 +47,7 @@
 }
 .icon-lock:before {
   content: "\e007";
+  color: white;
 }
 .icon-unlock:before {
   content: "\e008";
@@ -1052,6 +1053,7 @@
 }
 .icon-lock2:before {
   content: "\e9d4";
+  color: white;
 }
 .icon-log-out:before {
   content: "\e9d5";
@@ -1346,6 +1348,7 @@
 }
 .icon-user:before {
   content: "\ea36";
+  color: white;
 }
 .icon-users:before {
   content: "\ea37";
