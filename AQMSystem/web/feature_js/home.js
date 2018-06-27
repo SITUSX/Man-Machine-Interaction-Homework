@@ -469,7 +469,6 @@ function pieChartPaint() {
             show: true,
             feature: {
                 mark: {show: true},
-                dataView: {show: true, readOnly: false},
                 magicType: {
                     show: true,
                     type: ['pie', 'funnel']
@@ -481,7 +480,7 @@ function pieChartPaint() {
         calculable: true,
         series: [
             {
-                name: '面积模式',
+                name: '行业分布',
                 type: 'pie',
                 radius: [90, 170],
                 data: industryData
@@ -514,7 +513,6 @@ function pieChartPaint() {
             show: true,
             feature: {
                 mark: {show: true},
-                dataView: {show: true, readOnly: false},
                 magicType: {
                     show: true,
                     type: ['pie', 'funnel']
@@ -526,7 +524,7 @@ function pieChartPaint() {
         calculable: true,
         series: [
             {
-                name: '面积模式',
+                name: '地区分布',
                 type: 'pie',
                 radius: [90, 170],
                 data: seriesData
