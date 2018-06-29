@@ -41,6 +41,8 @@
 
     <link rel="stylesheet" href="css/sweet-alert.css">
 
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+
     <script src="https://unpkg.com/react@15.5.4/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.js"></script>
@@ -49,6 +51,8 @@
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+
+
 
     <script src="js/jquery.js"></script>
 
@@ -157,54 +161,57 @@
 
     <div id="fh5co-contact">
         <div class="container">
-            <div class="row row-pb-md">
+            <!--<div class="row row-pb-md">-->
 
-                <div class="col-md-push-0 animate-box">
-                    <div class="fh5co-contact-info">
-                        <div class="row form-group">
+            <!--<div class="col-md-push-0 animate-box">-->
+            <!--<div class="fh5co-contact-info">-->
+            <div class="row form-group">
 
-                            <div class="col-md-6">
-                            </div>
-                            <div class="col-md-3 text-center fh5co-heading  animate-box">
-                                <div id="list_root_one" onclick="hideDate()"></div>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="submit" id="search" class="btn btn-primary"> Search</button>
-                            </div>
-                        </div>
-                        <div id="date_choose">
-                            <div class="col-md-8">
-                                <div class="col-md-6 icon-calendar text-center">
-                                    <label>Start Date:</label>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <input id="begin" type="date" value="2014-09-01"/>
-                                </div>
-                                <hr>
-                                <div class="col-md-6 icon-calendar text-center">
-                                    <label>Final Date:</label>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <input id="end" type="date" value="2015-05-02"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4" style="alignment: center">
-                                <br \>
-                                <button id="paint_draw" style="margin-left: 18%" class="btn btn-primary"> Paint Draw
-                                </button>
-                            </div>
-                        </div>
-                        <script>
-                            function hideDate() {
-                                document.getElementById("date_choose").style.display = 'none';
-                            }
-                            function showDate() {
-                                document.getElementById("date_choose").style.display = 'block';
-                            }
-                        </script>
-                    </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-3 text-center fh5co-heading  animate-box">
+                    <div id="list_root_one" onclick="hideDate()"></div>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" id="search" class="btn bg-primary"> 搜索</button>
                 </div>
             </div>
+            <div id="date_choose">
+                <!--<div class="col-md-8">-->
+                <hr width="100">
+
+                <div class="col-md-3  text-center">
+                    <label for="begin" class="icon-calendar text-center">Start Date : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="begin" value="2017-01-01">
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <label for="end" class="icon-calendar">Final Date : </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" id="end" value="2017-05-31">
+                </div>
+                <!--</div>-->
+
+                <div class="col-md-2 text-center">
+                    <button id="paint_draw" class="btn bg-primary"> 查询</button>
+                </div>
+
+            </div>
+            <script>
+                function hideDate() {
+                    document.getElementById("date_choose").style.display = 'none';
+                }
+
+                function showDate() {
+                    document.getElementById("date_choose").style.display = 'block';
+                }
+            </script>
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
             <div onclick="showDate()">
                 <hr width="10000">
                 <h2 class="text-info icon-image"> Information</h2>
@@ -213,7 +220,7 @@
             <div class="col-md-2 text-center">
                 <label type="text" id="stock_code"> stock code</label>
             </div>
-            <div class="col-md-10"  onclick="showDate()">
+            <div class="col-md-10" onclick="showDate()">
                 <label>Trade : </label>
                 <label id="trade" style="-webkit-text-fill-color: rgb(250,225,170)"></label>
             </div>
@@ -284,6 +291,9 @@
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
+<!--DatePick-->
+<script src="js/bootstrap-datetimepicker.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!-- jQuery Easing -->
 <script src="js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->

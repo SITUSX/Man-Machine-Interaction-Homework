@@ -1,5 +1,26 @@
+$().ready(function () {
+    $("#begin").datetimepicker({
+        minView: 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language: 'zh-CN', // 语言
+        autoclose: true, //  true:选择时间后窗口自动关闭
+        format: 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn: true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate: new Date(),  // 窗口可选时间从今天开始
+        endDate: new Date()   // 窗口最大时间直至今天
+    });
+    $("#end").datetimepicker({
+        minView: 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language: 'zh-CN', // 语言
+        autoclose: true, //  true:选择时间后窗口自动关闭
+        format: 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn: true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate: new Date(),  // 窗口可选时间从今天开始
+        endDate: new Date()   // 窗口最大时间直至今天
+    })
+});
+
 function judgeCollect(code) {
-    if(checkCookie()=="true"){
+    if (checkCookie() == "true") {
         let username = getCookie('username');
         $.ajax({
             url: "/user/isCollected.form",
@@ -9,7 +30,7 @@ function judgeCollect(code) {
             },
             dataType: "json",
             success: function (result) {
-                if(result)
+                if (result)
                     document.getElementById("xing").checked = true;
                 else
                     document.getElementById("xing").checked = false;
@@ -81,9 +102,9 @@ function handlePaint(rawData) {
     var dates = rawData.map(function (item) {
         var oDate = new Date(item[0]),
             oYear = oDate.getFullYear(),
-            oMonth = oDate.getMonth()+1,
+            oMonth = oDate.getMonth() + 1,
             oDay = oDate.getDate(),
-            oTime = oYear +'-'+ oMonth +'-'+ oDay;
+            oTime = oYear + '-' + oMonth + '-' + oDay;
         return oTime;
     });
 
@@ -277,13 +298,13 @@ $().ready(function () {
     $("#xing").click(function () {
         collect();
     });
-    if(checkCookie()=="true"){
+    if (checkCookie() == "true") {
         let userName = getCookie("username");
         showWelcome(userName);
-    }else {
+    } else {
         login();
     }
-    $("#logout").click(function (){
+    $("#logout").click(function () {
         swal({
                 title: "Are you sure to Logout?",
                 text: "You have to Login again!",
@@ -293,7 +314,7 @@ $().ready(function () {
                 confirmButtonText: "Yes, Logout!",
                 closeOnConfirm: true
             },
-            function(){
+            function () {
                 login();
                 hideCookie();
             });
@@ -307,6 +328,7 @@ function login() {
     let showLog = document.getElementById("log");
     showLog.style.display = 'inline-block';
 }
+
 function showWelcome(userName) {
     let hideLog = document.getElementById("log");
     hideLog.style.display = 'none';
@@ -317,17 +339,17 @@ function showWelcome(userName) {
 }
 
 function collect() {
-    if(checkCookie()=="false"){
+    if (checkCookie() == "false") {
         swal({
             title: "Guest",
             text: "Please Login!",
             type: "error"
         });
         return;
-    } else{
+    } else {
         let username = getCookie('username');
         let code = $("#stock_code").text();
-        if(document.getElementById("xing").checked){
+        if (document.getElementById("xing").checked) {
             $.ajax({
                 url: "/user/addCollect.form",
                 data: {
@@ -336,7 +358,7 @@ function collect() {
                 },
                 dataType: "json",
                 success: function (result) {
-                    if(result)
+                    if (result)
                         swal({
                             title: "Add",
                             text: "Success!",
@@ -357,7 +379,7 @@ function collect() {
                     });
                 }
             });
-        }else{
+        } else {
             swal({
                     title: "Are you sure?",
                     text: "Delete this stock from your collected stocks!",
@@ -367,7 +389,7 @@ function collect() {
                     confirmButtonText: "Yes, delete it!",
                     closeOnConfirm: false
                 },
-                function(){
+                function () {
                     $.ajax({
                         url: "/user/delCollect.form",
                         data: {
@@ -376,7 +398,7 @@ function collect() {
                         },
                         dataType: "json",
                         success: function (result) {
-                            if(result)
+                            if (result)
                                 swal({
                                     title: "Delete",
                                     text: "Success!",
@@ -407,7 +429,7 @@ function pre_load() {
         dataType: "json",
         success: function (stockList) {
             if (stockList.length > 0) {
-                stockList = stockList.map((each)=>each['code'] + ' ' + each['name']);
+                stockList = stockList.map((each) => each['code'] + ' ' + each['name']);
                 ReactDOM.render(<SearchList in_id="stock" init_key="000001 平安银行"
                                             s_list={stockList.slice()}/>, document.getElementById('list_root_one'));
             }

@@ -1,3 +1,81 @@
+$().ready(function () {
+    $("#mean_start").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+    $("#mean_final").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+
+    $("#momentum_start").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+    $("#momentum_final").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+
+    $("#reverse_start").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+    $("#reverse_final").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+
+    $("#minimum_start").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+    $("#minimum_final").datetimepicker({
+        minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
+        language : 'zh-CN', // 语言
+        autoclose : true, //  true:选择时间后窗口自动关闭
+        format : 'yyyy-mm-dd', // 文本框时间格式，设置为0,最后时间格式为2017-03-23 17:00:00
+        todayBtn : true, // 如果此值为true 或 "linked"，则在日期时间选择器组件的底部显示一个 "Today" 按钮用以选择当前日期。
+        // startDate : new Date() ,  // 窗口可选时间从今天开始
+        endDate : new Date()   // 窗口最大时间直至今天
+    });
+});
+
 var onloading = [false, false, false, false];
 const strategyType = ["mean", "momentum", "reverse", "minimum"];
 const Type = ["均值回归", "动量策略", "反向策略", "最小方差"];

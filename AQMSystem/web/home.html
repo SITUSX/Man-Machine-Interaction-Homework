@@ -39,10 +39,13 @@
 
     <link rel="stylesheet" href="css/sweet-alert.css">
 
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+
 
     <script src="feature_js/util.js"></script>
 
@@ -52,6 +55,10 @@
     <script src="js/jquery.js"></script>
 
     <script src="feature_js/home.js"></script>
+
+    <!--DatePick-->
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 
 </head>
 <body>
@@ -75,12 +82,13 @@
                         <label style="-webkit-text-fill-color: white">welcome ,</label>
                         <label id="user" style="-webkit-text-fill-color: rgb(195,228,242)"></label>
                         <label style="-webkit-text-fill-color: white">!</label>
-                        <button class="btn btn-logout" id="logout"> 注销 </button>
+                        <button class="btn btn-logout" id="logout"> 注销</button>
                     </div>
                 </div>
 
                 <div class="col-xs-12 text-center">
-                    <div id="fh5co-logo"><a href="home.html" style="font-size:3.75em;font-weight:normal">AQM<span>.</span></a></div>
+                    <div id="fh5co-logo"><a href="home.html"
+                                            style="font-size:3.75em;font-weight:normal">AQM<span>.</span></a></div>
                 </div>
                 <div class="col-xs-12 text-center menu-1">
                     <ul>
@@ -133,7 +141,8 @@
         </div>
     </nav>
 
-    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_background.jpg);height: 805px">
+    <header id="fh5co-header" class="fh5co-cover" role="banner"
+            style="background-image:url(images/img_background.jpg);height: 805px">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -156,48 +165,49 @@
             <div>
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <button id = "sh" class="btn btn-link">上证指数</button>
+                    <button id="sh" class="btn btn-link">上证指数</button>
                 </div>
                 <div class="col-md-2">
-                    <button id = "sz" class="btn btn-link">深圳成指</button>
+                    <button id="sz" class="btn btn-link">深圳成指</button>
                 </div>
                 <div class="col-md-2">
-                    <button id = "hs300" class="btn btn-link">沪深300</button>
+                    <button id="hs300" class="btn btn-link">沪深300</button>
                 </div>
                 <div class="col-md-2">
-                    <button id = "zxb" class="btn btn-link">中小板指</button>
+                    <button id="zxb" class="btn btn-link">中小板指</button>
                 </div>
                 <div class="col-md-2">
-                    <button id = "cyb" class="btn btn-link">创业板指</button>
+                    <button id="cyb" class="btn btn-link">创业板指</button>
                 </div>
                 <hr width="100">
                 <div class="col-md-3 text-center">
                     <label for="start" class="icon-calendar text-center">Start Date : </label>
                 </div>
+
                 <div class="col-md-2">
-                    <input type="date" id = "start" value="2017-01-01">
+                    <input type="text" id="start" value="2017-01-01">
                 </div>
                 <div class="col-md-3 text-center">
                     <label for="final" class="icon-calendar">Final Date : </label>
                 </div>
                 <div class="col-md-2">
-                    <input type="date" id = "final" value="2017-05-31">
+                    <input type="text" id="final" value="2017-05-31">
                 </div>
                 <div class="col-md-2 text-center">
-                    <button id = "draw" class="btn bg-primary"> Draw </button>
+                    <button id="draw" class="btn bg-primary"> Draw</button>
                 </div>
 
-                <h4 id = "name" style = "-webkit-text-fill-color: rgb(143, 143,225); margin-left: 20%">name</h4>
-                <div style="width: 1000px;height: 500px" class="center-block" id = "market">
+                <h4 id="name" style="-webkit-text-fill-color: rgb(143, 143,225); margin-left: 20%">name</h4>
+                <div style="width: 1000px;height: 500px" class="center-block" id="market">
                 </div>
             </div>
 
             <hr>
-            <div id = "pie">
+            <div id="pie">
                 <div>
-                    <div style="width: 1100px; height: 475px" id = "industryChart"></div>
+                    <div style="width: 1100px; height: 475px" id="industryChart"></div>
                     <hr>
-                    <div style="width: 1100px; height: 475px" id = "areaChart"></div>
+                    <div style="width: 1100px; height: 475px" id="areaChart"></div>
                 </div>
             </div>
 
@@ -216,7 +226,8 @@
                         <br>Nanjing University</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i>150-6227-8989</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">979579683@qq.com</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a
+                                href="mailto:name@example.com">979579683@qq.com</a>
                         </li>
                     </ul>
                     <hr class="small">
@@ -239,10 +250,14 @@
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
+<!--DatePick-->
+<script src="js/bootstrap-datetimepicker.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
 <!-- jQuery Easing -->
 <script src="js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
+<script src=""></script>
 <!-- Waypoints -->
 <script src="js/jquery.waypoints.min.js"></script>
 <!-- countTo -->
