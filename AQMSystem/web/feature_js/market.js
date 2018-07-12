@@ -8,7 +8,7 @@ const BlockName = [
 const BlockType = ["主板", "中小板", "创业板", "行业板块", "概念板块", "地域板块"];
 
 $().ready(function () {
-    $("#date").datetimepicker({
+    $("#date_pick").datetimepicker({
         minView : 2, //  选择时间时，最小可以选择到那层；默认是‘hour’也可用0表示
         language : 'zh-CN', // 语言
         autoclose : true, //  true:选择时间后窗口自动关闭
@@ -142,7 +142,7 @@ $().ready(function () {
             return;
         }
 
-        let date = $("#date").val();
+        let date = $("#date_pick").val();
         for (let x = 0; x < date.length; x++) {
             if (date[x] == "/") {
                 date[x] = "-";

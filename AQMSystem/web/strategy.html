@@ -42,6 +42,7 @@
 
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
 
+
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -55,6 +56,7 @@
     <script src="js/sweet-alert.js"></script>
     <script src="js/echarts.js"></script>
     <script src="feature_js/strategy.js"></script>
+    <script src="js/sidenav.js"></script>
 
     <style type="text/css">
         .selectPlate {
@@ -158,39 +160,47 @@
         </div>
     </header>
 
+
     <div id="fh5co-blog" class="fh5co-bg-section">
         <div class="container" id="mean">
+
             <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>- Mean -</h2>
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 2em;margin-bottom: 0">
+                    <h2>- 均值回归 - </h2>
                 </div>
             </div>
             <div>
-                <h3 class="text-info icon-text"> Information <button class="btn-link" onclick="showHelp()">?</button>
+
+                <h3 class="text-info icon-text"> 选择参数
+                    <h4>
+                        <button class="btn-link" onclick="showHelp()">关于均值回归</button>
+                    </h4>
                 </h3>
+
                 <script>
                     function showHelp() {
-                    swal({
-                            title:" 均值回归(Mean Reversion)",
-                            text :"计算形成期股票池中每个股票的复权收盘价和5、10、20日均线的偏离度，偏离度计算：如果用P代表现在的股价，用MA代表均线的价格，那么这个度量是 (MA-P)&#47MA。每次选出偏离度最大的前20%股票持有"}
-                    )
-                }</script>
+                        swal({
+                                title: " 均值回归(Mean Reversion)",
+                                text: "计算形成期股票池中每个股票的复权收盘价和5、10、20日均线的偏离度，偏离度计算：如果用P代表现在的股价，用MA代表均线的价格，那么这个度量是 (MA-P)/MA。每次选出偏离度最大的前20%股票持有"
+                            }
+                        )
+                    }</script>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-3">
-                    <label>Choose Stock Pool : </label>
+                    <label>选择股票池 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="mean_stock_pool" value="all" checked onclick="divHide()">
-                    All Stock
+                    所有股票
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="mean_stock_pool" value="plate" onclick="divShowPlate()">
-                    Stock Plate
+                    板块
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="mean_stock_pool" value="optional" onclick="divShowOption()">
-                    Optional
+                    自选股票池
                 </div>
 
                 <hr width="1000">
@@ -198,27 +208,27 @@
 
                 <div id="plateDIV" class="selectPlate">
                     <div>
-                        <label>Choose plate : </label>
+                        <label>选择板块 : </label>
                         <select id="mean_plate" style="margin-left: 20%;" class="cs-select cs-skin-underline">
-                            <option id="motherboard">Motherboard</option>
-                            <option id="gem">Gem</option>
-                            <option id="small">Small</option>
-                            <option id="location">Location</option>
-                            <option id="industry">Industry</option>
-                            <option id="conception">Conception</option>
+                            <option id="motherboard">主板</option>
+                            <option id="gem">创业板</option>
+                            <option id="small">中小板</option>
+                            <option id="location">地域板块</option>
+                            <option id="industry">行业板块</option>
+                            <option id="conception">概念板块</option>
                         </select>
                     </div>
                 </div>
                 <div id="option" class="selectOption">
                     <div class="col-md-2">
-                        <label>Stock Volume : </label>
+                        <label>股票交易量 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum volume" id="mean_min_volume">
+                        <input type="text" class="form-control" placeholder="最小成交量" id="mean_min_volume">
                     </div>
                     <hr width="1000">
                     <div class="col-md-2">
-                        <label style="margin-top: 12px">Stock Price : </label>
+                        <label style="margin-top: 12px">股票价格 : </label>
                     </div>
                     <div class="col-md-1">
                         <input type="checkbox" class="checkbox" id="mean_zero_price">0 ~ 20</input>
@@ -237,10 +247,10 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-2">
-                        <label style="margin-top: 5%">Change : </label>
+                        <label style="margin-top: 5%">变化率 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum change percent"
+                        <input type="text" class="form-control" placeholder="最小变化率"
                                id="mean_min_range">
                     </div>
                     <div class="col-md-7">
@@ -248,9 +258,9 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-5">
-                        <label>You choose : </label>
+                        <label>你选择的 : </label>
                         <label id="mean_stock_num"></label>
-                        <label>stocks .</label>
+                        <label>股票 .</label>
                     </div>
                 </div>
 
@@ -262,6 +272,7 @@
                         let hideOption = document.getElementById("option");
                         hideOption.style.display = 'none';
                     }
+
                     function divShowOption() {
                         let hidePlate = document.getElementById("plateDIV");
                         hidePlate.style.display = 'none';
@@ -281,23 +292,23 @@
                 <div>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <label>Forming Period : </label>
+                        <label>形成期 : </label>
                     </div>
                     <div class="col-md-2">
-                        <input type="radio" class="radio" name="forming_period" value="5" checked> 5 days
+                        <input type="radio" class="radio" name="forming_period" value="5" checked> 5 天
                     </div>
                     <div class="col-md-2">
-                        <input type="radio" class="radio" name="forming_period" value="10"> 10 days
+                        <input type="radio" class="radio" name="forming_period" value="10"> 10 天
                     </div>
                     <div class="col-md-4">
-                        <input type="radio" class="radio" name="forming_period" value="20"> 20 days
+                        <input type="radio" class="radio" name="forming_period" value="20"> 20 天
                     </div>
 
                     <hr width="0">
 
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <label>Holding Period : </label>
+                        <label>持有期 : </label>
                     </div>
                     <div class="col-md-3">
                         <input id="mean_holding" type="range" min="1" max="100" step="1" value="20">
@@ -312,13 +323,13 @@
                     <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
 
                     <div class="col-md-2 icon-calendar text-center">
-                        <label>Start Date:</label>
+                        <label>开始日期:</label>
                     </div>
                     <div class="col-md-4">
                         <input id="mean_start" type="text" value="2017-01-01"/>
                     </div>
                     <div class="col-md-2 icon-calendar text-center">
-                        <label>Final Date:</label>
+                        <label>结束日期:</label>
                     </div>
                     <div class="col-md-4">
                         <input id="mean_final" type="text" value="2017-05-30"/>
@@ -328,7 +339,7 @@
             <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <input id="mean_check" type="submit" class="btn btn-primary" value="Check">
+                <input id="mean_check" type="submit" class="btn bg-primary" value="开始回测">
             </div>
             <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
             <style>
@@ -340,16 +351,16 @@
             </style>
 
             <div class="animate-box">
-                <h3 class="text-info icon-book"> Details</h3>
+                <h3 class="text-info icon-book"> 策略结果</h3>
                 <table class="table" id="mean_table">
                     <tr>
-                        <th class="text-center">Annualized Return</th>
-                        <th class="text-center">Benchmark Annualized Return</th>
-                        <th class="text-center">Alpha</th>
-                        <th class="text-center">Beta</th>
-                        <th class="text-center">Sharpe</th>
-                        <th class="text-center">Win Rate</th>
-                        <th class="text-center">Max Drawdown</th>
+                        <th class="text-center">年化收益率</th>
+                        <th class="text-center">基准年化收益率</th>
+                        <th class="text-center">阿尔法指数</th>
+                        <th class="text-center">贝塔指数</th>
+                        <th class="text-center">夏普比率</th>
+                        <th class="text-center">胜率</th>
+                        <th class="text-center">最大回撤</th>
                     </tr>
                     <tr class="text-center">
                         <td><label id="meanAR">-</label></td>
@@ -363,15 +374,15 @@
                 </table>
             </div>
             <hr style="border-top:2px dotted rgb(243,243,243)" width="1000px">
-            <div class="col-md-6 icon-line-graph">
-                <h3 class="text-info">Yield Curve</h3>
-                <span>收益率曲线</span>
+            <div class="col-md-6 ">
+                <h3 class="text-info icon-line-graph"> 收益率曲线</h3>
+                <!--<span>收益率曲线</span>-->
                 <div style="height: 400px; width: 570px;" id="meanReturn">
                 </div>
             </div>
-            <div class="col-md-6 icon-bar-graph">
-                <h3 class="text-info">Revenue Distribution Histogram</h3>
-                <span>收益分布直方图</span>
+            <div class="col-md-6">
+                <h3 class="text-info icon-bar-graph"> 收益分布直方图</h3>
+                <!--<span>收益分布直方图</span>-->
                 <div style="width: 570px; height: 400px;" id="meanBarReturn">
                 </div>
             </div>
@@ -381,64 +392,67 @@
     <div id="fh5co-started">
         <div class="container" id="momentum">
             <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>- Momentum -</h2>
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 2em;margin-bottom: 0">
+                    <h2>- 动量策略 -</h2>
                 </div>
             </div>
             <div style="-webkit-text-fill-color: rgba(223,223,223,0.8)">
-                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Information<button class="btn-link" onclick="showMomHelp()">?</button>
+                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> 选择参数
+                    <h4>
+                        <button class="btn-link" onclick="showHelp()">关于动量策略</button>
+                    </h4>
                 </h3>
                 <script>
                     function showMomHelp() {
                         swal({
-                            title:" 动量策略(Monmentum)",
-                            text :"价格动量是指价格变化的速度，或一段时间内价格的变化率。正的价格动量告诉我们，某只股票买家数量正在不断增加，目前需求超过供应；相反，负的价格动量则告诉我们股票的卖家数量正显著增加，供应超过需求。在一般情况下，我们预期表现最好的股票将会继续表现强劲，而表现最差的将继续表现不佳每次选出价格动量最大的前20%股票持有。"
-                        }
+                                title: " 动量策略(Monmentum)",
+                                text: "价格动量是指价格变化的速度，或一段时间内价格的变化率。正的价格动量告诉我们，某只股票买家数量正在不断增加，目前需求超过供应；相反，负的价格动量则告诉我们股票的卖家数量正显著增加，供应超过需求。在一般情况下，我们预期表现最好的股票将会继续表现强劲，而表现最差的将继续表现不佳每次选出价格动量最大的前20%股票持有。"
+                            }
                         )
                     }</script>
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Choose Stock Pool : </label>
+                    <label>选择股票池 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="momentum_stock_pool" value="all" checked
-                           onclick="divHideMom()"> All Stock
+                           onclick="divHideMom()"> 所有股票
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="momentum_stock_pool" value="plate"
-                           onclick="divShowPlateMom()"> Stock Plate
+                           onclick="divShowPlateMom()"> 板块
                 </div>
                 <div class="col-md-5">
                     <input type="radio" class="radio" name="momentum_stock_pool" value="optional"
-                           onclick="divShowOptionMom()"> Optional
+                           onclick="divShowOptionMom()"> 自选股票池
                 </div>
 
                 <hr width="0" style="border-top:2px dotted rgb(63, 74, 78)">
 
                 <div id="plateMom" class="selectPlate">
                     <div>
-                        <label>Choose plate : </label>
+                        <label>选择板块 : </label>
                         <select id="momentum_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
-                            <option id="motherboardMom">Motherboard</option>
-                            <option id="gemMom">Gem</option>
-                            <option id="smallMom">Small</option>
-                            <option id="locationMom">Location</option>
-                            <option id="industryMom">Industry</option>
-                            <option id="conceptionMom">Conception</option>
+                            <option id="motherboardMom">主板</option>
+                            <option id="gemMom">创业板</option>
+                            <option id="smallMom">中小板</option>
+                            <option id="locationMom">地域板块</option>
+                            <option id="industryMom">行业板块</option>
+                            <option id="conceptionMom">概念板块</option>
                         </select>
                     </div>
                 </div>
                 <div id="optionMom" class="selectOption">
                     <div class="col-md-2">
-                        <label>Stock Volume : </label>
+                        <label>股票交易量 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum volume" id="momentum_min_volume">
+                        <input type="text" class="form-control" placeholder="最小成交量" id="momentum_min_volume">
                     </div>
                     <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
                     <div class="col-md-2">
-                        <label style="margin-top: 12px">Stock Price : </label>
+                        <label style="margin-top: 12px">股票价格 : </label>
                     </div>
                     <div class="col-md-1">
                         <input type="checkbox" class="checkbox" id="momentum_zero_price">0 ~ 20</input>
@@ -457,10 +471,10 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-2">
-                        <label style="margin-top: 5%">Change : </label>
+                        <label style="margin-top: 5%">变化率 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum change percent"
+                        <input type="text" class="form-control" placeholder="最小变化率"
                                id="momentum_min_range">
                     </div>
                     <div class="col-md-7">
@@ -468,9 +482,9 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-5">
-                        <label>You choose : </label>
+                        <label>你选择的 : </label>
                         <label id="momentum_stock_num"></label>
-                        <label>stocks .</label>
+                        <label>股票 .</label>
                     </div>
                 </div>
 
@@ -482,6 +496,7 @@
                         let hideOption = document.getElementById("optionMom");
                         hideOption.style.display = 'none';
                     }
+
                     function divShowOptionMom() {
                         let hidePlate = document.getElementById("plateMom");
                         hidePlate.style.display = 'none';
@@ -500,7 +515,7 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Forming Period : </label>
+                    <label>形成期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="momentum_forming" type="range" min="1" max="100" step="1" value="20">
@@ -508,7 +523,7 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Holding Period : </label>
+                    <label>持有期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="momentum_holding" type="range" min="1" max="100" step="1" value="20">
@@ -526,13 +541,13 @@
                 <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
 
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Start Date:</label>
+                    <label>开始日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="momentum_start" type="text" value="2017-01-01"/>
                 </div>
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Final Date:</label>
+                    <label>结束日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="momentum_final" type="text" value="2017-05-30"/>
@@ -541,7 +556,7 @@
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <input id="momentum_check" type="submit" class="btn" value="Check">
+                <input id="momentum_check" type="submit" class="btn" value="开始回测">
             </div>
 
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
@@ -555,16 +570,16 @@
             </style>
 
             <div class="animate-box">
-                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Details</h3>
+                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> 策略结果</h3>
                 <table class="table" id="momentum_table">
                     <tr>
-                        <th class="text-center">Annualized Return</th>
-                        <th class="text-center">Benchmark Annualized Return</th>
-                        <th class="text-center">Alpha</th>
-                        <th class="text-center">Beta</th>
-                        <th class="text-center">Sharpe</th>
-                        <th class="text-center">Win Rate</th>
-                        <th class="text-center">Max Drawdown</th>
+                        <th class="text-center">年化收益率</th>
+                        <th class="text-center">基准年化收益率</th>
+                        <th class="text-center">阿尔法指数</th>
+                        <th class="text-center">贝塔指数</th>
+                        <th class="text-center">夏普比率</th>
+                        <th class="text-center">胜率</th>
+                        <th class="text-center">最大回撤</th>
                     </tr>
                     <tr class="text-center">
                         <td><label id="momentumAR">-</label></td>
@@ -578,15 +593,15 @@
                 </table>
             </div>
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
-            <div class="col-md-6 icon-line-graph" style="-webkit-text-fill-color: white">
-                <h3 class="text-info">Yield Curve</h3>
-                <span>收益率曲线</span>
+            <div class="col-md-6" style="-webkit-text-fill-color: white">
+                <h3 class="text-info icon-line-graph"> 收益率曲线</h3>
+                <!--<span>收益率曲线</span>-->
                 <div style="width: 570px; height: 400px;" id="momReturn">
                 </div>
             </div>
-            <div class="col-md-6 icon-bar-graph" style="-webkit-text-fill-color: white">
-                <h3 class="text-info">Revenue Distribution Histogram</h3>
-                <span>收益分布直方图</span>
+            <div class="col-md-6 " style="-webkit-text-fill-color: white">
+                <h3 class="text-info icon-bar-graph"> 收益分布直方图</h3>
+                <!--<span>收益分布直方图</span>-->
                 <div style="width: 570px; height: 400px;" id="momBarReturn">
                 </div>
             </div>
@@ -596,64 +611,67 @@
     <div class="fh5co-bg-section">
         <div class="container" id="reverse">
             <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>- Reverse -</h2>
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 2em;margin-bottom: 0">
+                    <h2>- 反向策略 -</h2>
                 </div>
             </div>
             <div>
-                <h3 class="text-info icon-text"> Information<button class="btn-link" onclick="showREVHelp()">?</button>
+                <h3 class="text-info icon-text"> 选择参数
+                    <h4>
+                        <button class="btn-link" onclick="showREVHelp()">关于反向策略</button>
+                    </h4>
                 </h3>
                 <script>
                     function showREVHelp() {
                         swal({
-                                title:" 反向策略（Reverse)",
-                                text :"与动量策略相反，我们预期表现最差的股票可能在之后会出现回升，而表现最好的极有可能会表现不佳。反向策略在较短回测期和较长回测期均表现良好。每次选出价格动量最低的前20%股票持有。"
+                                title: " 反向策略（Reverse)",
+                                text: "与动量策略相反，我们预期表现最差的股票可能在之后会出现回升，而表现最好的极有可能会表现不佳。反向策略在较短回测期和较长回测期均表现良好。每次选出价格动量最低的前20%股票持有。"
                             }
                         )
                     }</script>
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Choose Stock Pool : </label>
+                    <label>选择股票池 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="reverse_stock_pool" value="all" checked
-                           onclick="divHideRev()"> All Stock
+                           onclick="divHideRev()"> 所有股票
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="reverse_stock_pool" value="plate"
-                           onclick="divShowPlateRev()"> Stock Plate
+                           onclick="divShowPlateRev()"> 板块
                 </div>
                 <div class="col-md-5">
                     <input type="radio" class="radio" name="reverse_stock_pool" value="optional"
-                           onclick="divShowOptionRev()"> Optional
+                           onclick="divShowOptionRev()"> 自选股票池
                 </div>
 
                 <hr width="0">
 
                 <div id="plateRev" class="selectPlate">
                     <div>
-                        <label>Choose plate : </label>
+                        <label>选择板块 : </label>
                         <select id="reserve_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
-                            <option id="motherboardRev">Motherboard</option>
-                            <option id="gemRev">Gem</option>
-                            <option id="smallRev">Small</option>
-                            <option id="locationRev">Location</option>
-                            <option id="industryRev">Industry</option>
-                            <option id="conceptionRev">Conception</option>
+                            <option id="motherboardRev">主板</option>
+                            <option id="gemRev">创业板</option>
+                            <option id="smallRev">中小板</option>
+                            <option id="locationRev">地域板块</option>
+                            <option id="industryRev">行业板块</option>
+                            <option id="conceptionRev">概念板块</option>
                         </select>
                     </div>
                 </div>
                 <div id="optionRev" class="selectOption">
                     <div class="col-md-2">
-                        <label>Stock Volume : </label>
+                        <label>股票交易量 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum volume" id="reverse_min_volume">
+                        <input type="text" class="form-control" placeholder="最小成交量" id="reverse_min_volume">
                     </div>
                     <hr width="1000px">
                     <div class="col-md-2">
-                        <label>Stock Price : </label>
+                        <label>股票价格 : </label>
                     </div>
                     <div class="col-md-1">
                         <input type="checkbox" class="checkbox" id="reverse_zero_price">0 ~ 20</input>
@@ -672,10 +690,10 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-2">
-                        <label style="margin-top: 5%">Change : </label>
+                        <label style="margin-top: 5%">变化率 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum change percent"
+                        <input type="text" class="form-control" placeholder="最小变化率"
                                id="reverse_min_range">
                     </div>
                     <div class="col-md-7">
@@ -683,9 +701,9 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-5">
-                        <label>You choose : </label>
+                        <label>你选择的 : </label>
                         <label id="reverse_stock_num"></label>
-                        <label>stocks .</label>
+                        <label>股票 .</label>
                     </div>
                 </div>
 
@@ -697,6 +715,7 @@
                         let hideOption = document.getElementById("optionRev");
                         hideOption.style.display = 'none';
                     }
+
                     function divShowOptionRev() {
                         let hidePlate = document.getElementById("plateRev");
                         hidePlate.style.display = 'none';
@@ -715,7 +734,7 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Forming Period : </label>
+                    <label>形成期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="reverse_forming" type="range" min="1" max="100" step="1" value="20">
@@ -723,7 +742,7 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Holding Period : </label>
+                    <label>持有期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="reverse_holding" type="range" min="1" max="100" step="1" value="20">
@@ -741,13 +760,13 @@
                 <hr width="1000px">
 
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Start Date:</label>
+                    <label>开始日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="reverse_start" type="text" value="2017-01-01"/>
                 </div>
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Final Date:</label>
+                    <label>结束日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="reverse_final" type="text" value="2017-05-30"/>
@@ -757,7 +776,7 @@
             <hr width="1000px">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <input id="reverse_check" type="submit" class="btn btn-primary" value="Check">
+                <input id="reverse_check" type="submit" class="btn btn-primary" value="开始回测">
             </div>
 
             <hr width="1000px">
@@ -771,16 +790,16 @@
             </style>
 
             <div class="animate-box">
-                <h3 class="icon-book text-info"> Details</h3>
+                <h3 class="icon-book text-info"> 策略结果</h3>
                 <table class="table" id="rev_table">
                     <tr>
-                        <th class="text-center">Annualized Return</th>
-                        <th class="text-center">Benchmark Annualized Return</th>
-                        <th class="text-center">Alpha</th>
-                        <th class="text-center">Beta</th>
-                        <th class="text-center">Sharpe</th>
-                        <th class="text-center">Win Rate</th>
-                        <th class="text-center">Max Drawdown</th>
+                        <th class="text-center">年化收益率</th>
+                        <th class="text-center">基准年化收益率</th>
+                        <th class="text-center">阿尔法指数</th>
+                        <th class="text-center">贝塔指数</th>
+                        <th class="text-center">夏普比率</th>
+                        <th class="text-center">胜率</th>
+                        <th class="text-center">最大回撤</th>
                     </tr>
                     <tr class="text-center">
                         <td><label id="reverseAR">-</label></td>
@@ -794,15 +813,15 @@
                 </table>
             </div>
             <hr width="1000px">
-            <div class="col-md-6 icon-line-graph">
-                <h3 class="text-info">Yield Curve</h3>
-                <span>收益率曲线</span>
+            <div class="col-md-6">
+                <h3 class="text-info icon-line-graph"> 收益率曲线</h3>
+                <!--<span>收益率曲线</span>-->
                 <div style="width: 570px; height: 400px;" id="revReturn">
                 </div>
             </div>
-            <div class="col-md-6 icon-bar-graph">
-                <h3 class="text-info">Revenue Distribution Histogram</h3>
-                <span>收益分布直方图</span>
+            <div class="col-md-6">
+                <h3 class="text-info icon-bar-graph"> 收益分布直方图</h3>
+                <!--<span>收益分布直方图</span>-->
                 <div style="width: 570px; height: 400px;" id="revBarReturn">
                 </div>
             </div>
@@ -812,64 +831,67 @@
     <div id="fh6co-started">
         <div class="container" id="min_variance">
             <div class="row animate-box row-pb-md" data-animate-effect="fadeInUp">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>- Minimum Variance -</h2>
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 2em;margin-bottom: 0">
+                    <h2>- 最小方差 -</h2>
                 </div>
             </div>
             <div style="-webkit-text-fill-color: rgba(223,223,223,0.8)">
-                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Information<button class="btn-link" onclick="showMINHelp()">?</button>
+                <h3 class="text-info icon-text" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> 选择参数
+                    <h4>
+                        <button class="btn-link" onclick="showMINHelp()">关于最小方差</button>
+                    </h4>
                 </h3>
                 <script>
                     function showMINHelp() {
                         swal({
-                                title:"最小方差(Minimum Variance)",
-                                text :"最小方差策略选出形成期复权收盘价方差最小的股票作为持有。我们认为这样的股票表现较为稳定，价格波动较小，不易出现大幅下跌的情况。最小方差在大盘急剧下跌的情况下表现良好。"
+                                title: "最小方差(Minimum Variance)",
+                                text: "最小方差策略选出形成期复权收盘价方差最小的股票作为持有。我们认为这样的股票表现较为稳定，价格波动较小，不易出现大幅下跌的情况。最小方差在大盘急剧下跌的情况下表现良好。"
                             }
                         )
                     }</script>
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Choose Stock Pool : </label>
+                    <label>选择股票池 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="minimum_stock_pool" value="all" checked
-                           onclick="divHideMin()"> All Stock
+                           onclick="divHideMin()"> 所有股票
                 </div>
                 <div class="col-md-2">
                     <input type="radio" class="radio" name="minimun_stock_pool" value="plate"
-                           onclick="divShowPlateMin()"> Stock Plate
+                           onclick="divShowPlateMin()"> 板块
                 </div>
                 <div class="col-md-5">
                     <input type="radio" class="radio" name="minimum_stock_pool" value="optional"
-                           onclick="divShowOptionMin()"> Optional
+                           onclick="divShowOptionMin()"> 自选股票池
                 </div>
 
                 <hr width="0" style="border-top:2px dotted rgb(63, 74, 78)">
 
                 <div id="plateMin" class="selectPlate">
                     <div>
-                        <label>Choose plate : </label>
+                        <label>选择板块 : </label>
                         <select id="minimum_plate" style="margin-left: 10%" class="cs-select cs-skin-underline">
-                            <option id="motherboardMin">Motherboard</option>
-                            <option id="gemMin">Gem</option>
-                            <option id="smallMin">Small</option>
-                            <option id="locationMin">Location</option>
-                            <option id="industryMin">Industry</option>
-                            <option id="conceptionMin">Conception</option>
+                            <option id="motherboardMin">主板</option>
+                            <option id="gemMin">创业板</option>
+                            <option id="smallMin">中小板</option>
+                            <option id="locationMin">地域板块</option>
+                            <option id="industryMin">行业板块</option>
+                            <option id="conceptionMin">概念板块</option>
                         </select>
                     </div>
                 </div>
                 <div id="optionMin" class="selectOption">
                     <div class="col-md-2">
-                        <label>Stock Volume : </label>
+                        <label>股票交易量 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum volume" id="minimum_min_volume">
+                        <input type="text" class="form-control" placeholder="最小成交量" id="minimum_min_volume">
                     </div>
                     <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
                     <div class="col-md-2">
-                        <label>Stock Price : </label>
+                        <label>股票价格 : </label>
                     </div>
                     <div class="col-md-1">
                         <input type="checkbox" class="checkbox" id="minimum_zero_price">0 ~ 20</input>
@@ -888,10 +910,10 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-2">
-                        <label style="margin-top: 5%">Change : </label>
+                        <label style="margin-top: 5%">变化率 : </label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="minimum change percent"
+                        <input type="text" class="form-control" placeholder="最小变化率"
                                id="minimum_min_range">
                     </div>
                     <div class="col-md-7">
@@ -899,9 +921,9 @@
                     </div>
                     <hr width="1000">
                     <div class="col-md-5">
-                        <label>You choose : </label>
+                        <label>你选择的 : </label>
                         <label id="minimum_stock_num"></label>
-                        <label>stocks .</label>
+                        <label>股票 .</label>
                     </div>
                 </div>
 
@@ -913,6 +935,7 @@
                         let hideOption = document.getElementById("optionMin");
                         hideOption.style.display = 'none';
                     }
+
                     function divShowOptionMin() {
                         let hidePlate = document.getElementById("plateMin");
                         hidePlate.style.display = 'none';
@@ -931,7 +954,7 @@
 
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Forming Period : </label>
+                    <label>形成期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="minimum_forming" type="range" min="1" max="100" step="1" value="20">
@@ -939,7 +962,7 @@
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
-                    <label>Holding Period : </label>
+                    <label>持有期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input id="minimum_holding" type="range" min="1" max="100" step="1" value="20">
@@ -957,13 +980,13 @@
                 <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
 
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Start Date:</label>
+                    <label>开始日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="minimum_start" type="text" value="2017-01-01"/>
                 </div>
                 <div class="col-md-2 icon-calendar text-center">
-                    <label>Final Date:</label>
+                    <label>结束日期:</label>
                 </div>
                 <div class="col-md-4">
                     <input id="minimum_final" type="text" value="2017-05-30"/>
@@ -972,7 +995,7 @@
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <input id="minimum_check" type="submit" class="btn" value="Check">
+                <input id="minimum_check" type="submit" class="btn" value="开始回测">
             </div>
 
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
@@ -986,16 +1009,16 @@
             </style>
 
             <div class="animate-box">
-                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> Details</h3>
+                <h3 class="icon-book" style="-webkit-text-fill-color: rgba(195,214,223,0.8)"> 策略结果</h3>
                 <table class="table" id="min_table">
                     <tr>
-                        <th class="text-center">Annualized Return</th>
-                        <th class="text-center">Benchmark Annualized Return</th>
-                        <th class="text-center">Alpha</th>
-                        <th class="text-center">Beta</th>
-                        <th class="text-center">Sharpe</th>
-                        <th class="text-center">Win Rate</th>
-                        <th class="text-center">Max Drawdown</th>
+                        <th class="text-center">年化收益率</th>
+                        <th class="text-center">基准年化收益率</th>
+                        <th class="text-center">阿尔法指数</th>
+                        <th class="text-center">贝塔指数</th>
+                        <th class="text-center">夏普比率</th>
+                        <th class="text-center">胜率</th>
+                        <th class="text-center">最大回撤</th>
                     </tr>
                     <tr class="text-center">
                         <td><label id="minimumAR">-</label></td>
@@ -1009,15 +1032,15 @@
                 </table>
             </div>
             <hr style="border-top:2px dotted rgb(63, 74, 78)" width="1000px">
-            <div class="col-md-6 icon-line-graph" style="-webkit-text-fill-color: white">
-                <h3 class="text-info">Yield Curve</h3>
-                <span>收益率曲线</span>
+            <div class="col-md-6" style="-webkit-text-fill-color: white">
+                <h3 class="text-info icon-line-graph"> 收益率曲线</h3>
+                <!--<span>收益率曲线</span>-->
                 <div style="width: 570px; height: 400px;" id="minReturn">
                 </div>
             </div>
-            <div class="col-md-6 icon-bar-graph" style="-webkit-text-fill-color: white">
-                <h3 class="text-info">Revenue Distribution Histogram</h3>
-                <span>收益分布直方图</span>
+            <div class="col-md-6 " style="-webkit-text-fill-color: white">
+                <h3 class="text-info icon-bar-graph"> 收益分布直方图</h3>
+                <!--<span>收益分布直方图</span>-->
                 <div style="width: 570px; height: 400px;" id="minBarReturn">
                 </div>
             </div>

@@ -46,6 +46,12 @@ function pre_load() {
     })
 }
 
+function showResult() {
+    let result = document.getElementById("compare_result");
+    result.style.display = 'block';
+    let result_graph = document.getElementById("compare_graph");
+    result_graph.style.display = 'block';
+}
 
 function radarChartPaint(fMinPrice, fMaxPrice, fChange, fVariance, fname, sMinPrice, sMaxPrice, sChange, sVariance, sname) {
     var radarChart = echarts.init(document.getElementById('proportion'));

@@ -144,16 +144,16 @@
             <div class="row">
                 <div class="col-md-push-0 animate-box">
                     <div class="fh5co-contact-info">
-                        <h3 class="text-info icon-text"> Information</h3>
+                        <h3 class="text-info icon-text"> 选择参数</h3>
                         <div class="row form-group">
                             <div class="col-md-3 icon-align-center text-center">
-                                <label>First Stock:</label>
+                                <label>选择股票1:</label>
                             </div>
                             <div class="col-md-3">
                                 <div id="list_root_one"></div>
                             </div>
                             <div class="col-md-3 icon-align-center text-center">
-                                <label>Second Stock:</label>
+                                <label>选择股票2:</label>
                             </div>
                             <div class="col-md-3">
                                 <!--<input type="text" class="form-control" list = "slist" id="second_stock_name" placeholder=" code" value="000002 万 科A">-->
@@ -167,13 +167,13 @@
 
                         <div class="row form-group">
                             <div class="col-md-3 icon-calendar text-center">
-                                <label>Start Date:</label>
+                                <label>开始时间:</label>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" value="2017-01-01" id="start"/>
                             </div>
                             <div class="col-md-3 icon-calendar text-center">
-                                <label>Final Date:</label>
+                                <label>结束时间:</label>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" value="2017-05-31" id="final"/>
@@ -182,7 +182,7 @@
 
                         <hr width="0px">
                         <div class="col-md-5"></div>
-                        <button type="submit" class="btn btn-primary" id="compare">Compare</button>
+                        <button type="submit" class="btn btn-primary" id="compare" onclick="showResult()">对比</button>
                     </div>
                 </div>
 
@@ -195,15 +195,15 @@
                     }
                 </style>
 
-                <div class="animate-box">
-                    <h3 class="text-info icon-line-graph"> Details</h3>
+                <div class="animate-box" id="compare_result" style="display: none">
+                    <h3 class="text-info icon-line-graph"> 结果</h3>
                     <table class="table" id="table">
                         <tr>
-                            <th class="text-center">Stock Name</th>
-                            <th class="text-center">Min Price</th>
-                            <th class="text-center">Max Price</th>
-                            <th class="text-center">Change</th>
-                            <th class="text-center">Variance of LogReturn</th>
+                            <th class="text-center">股票名称</th>
+                            <th class="text-center">最低价</th>
+                            <th class="text-center">最高价</th>
+                            <th class="text-center">价格变化</th>
+                            <th class="text-center">对数收益率方差</th>
                         </tr>
                         <tr class="text-center">
                             <td><label id="fname">-</label></td>
@@ -225,12 +225,12 @@
         </div>
         <hr width="0px">
 
-        <div class="container">
+        <div class="container" id="compare_graph" style="display: none">
             <div class="row animate-box">
                 <div class="fh5co-heading">
                     <div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-10">
+
+                        <div class="col-md-12">
                             <h3 class="text-info">Proportion</h3>
                             <span><label id="first_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>
                                 与<label id="second_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>股票数据比值</span>
@@ -239,13 +239,13 @@
                         </div>
 
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <h3 class="text-info">Closing Price</h3>
                         <span>收盘价对比</span>
                         <div id="close" style="width: 500px;height: 400px;">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <h3 class="text-info">Log Return</h3>
                         <span>对数收益率对比</span>
                         <div id="log" style="width: 500px;height: 400px;">

@@ -141,50 +141,50 @@
         <div class="container">
             <div class="animate-box">
                 <div class="col-md-2">
-                    <input class="radio" type="radio" name="check" checked onclick="divShowHistory()">History</input>
+                    <input class="radio" type="radio" name="check" checked onclick="divShowHistory()">历史记录</input>
                 </div>
                 <div class="col-md-2">
-                    <input class="radio" type="radio" name="check" onclick="divShowNew()">Newest</input>
+                    <input class="radio" type="radio" name="check" onclick="divShowNew()">最新市场</input>
                 </div>
-                <hr width="1000">
+                <hr width="100%">
                 <div id="newest" class="selectNew">
-                    <div class="row row-pb-md animate-box col-md-6">
+                    <div class="row row-pb-md animate-box col-md-12">
                         <div class="animate-box">
                             <h3 class="text-info icon-cloud">涨幅排行榜</h3>
-                            <span>Change Percent</span>
+                            <!--<span>涨幅</span>-->
                             <table class="table" id="increaseTable">
                                 <tr>
-                                    <th class="text-center">Stock Name</th>
-                                    <th class="text-center">Stock Code</th>
-                                    <th class="text-center">Change(%)</th>
+                                    <th class="col-md-4 text-center">股票名称</th>
+                                    <th class="col-md-4 text-center">股票代码</th>
+                                    <th class="col-md-4 text-center">涨幅(%)</th>
                                 </tr>
                             </table>
                             <br \>
                         </div>
                     </div>
-                    <div class="row row-pb-md animate-box col-md-6">
+                    <div class="row row-pb-md animate-box col-md-12">
                         <div class="animate-box">
                             <h3 class="text-info icon-cloud2">跌幅排行榜</h3>
-                            <span>Change Percent</span>
+                            <!--<span>跌幅</span>-->
                             <table class="table" id="decreaseTable">
                                 <tr>
-                                    <th class="text-center">Stock Name</th>
-                                    <th class="text-center">Stock Code</th>
-                                    <th class="text-center">Change(%)</th>
+                                    <th class="col-md-4 text-center">股票名称</th>
+                                    <th class="col-md-4 text-center">股票代码</th>
+                                    <th class="col-md-4 text-center">跌幅(%)</th>
                                 </tr>
                             </table>
                             <br \>
                         </div>
                     </div>
-                    <div class="row row-pb-md animate-box col-md-6">
+                    <div class="row row-pb-md animate-box col-md-12">
                         <div class="animate-box">
                             <h3 class="text-info icon-cloud2">交易量排行榜</h3>
-                            <span>Volume</span>
+                            <!--<span>交易量</span>-->
                             <table class="table" id="volumeTable">
                                 <tr>
-                                    <th class="text-center">Stock Name</th>
-                                    <th class="text-center">Stock Code</th>
-                                    <th class="text-center">Volume</th>
+                                    <th class="col-md-4 text-center">股票名称</th>
+                                    <th class="col-md-4 text-center">股票代码</th>
+                                    <th class="col-md-4 text-center">交易量</th>
                                 </tr>
                             </table>
                             <br \>
@@ -194,51 +194,57 @@
 
                 <div id="history" class="selectHistory">
                     <div class="col-md-9">
-                        <!--<div class="row form-group">-->
-                        <div class="col-md-4 icon-calendar ">
-                            <label>选择日期:</label>
+                        <div class="row form-group">
+                            <div class="col-md-3 icon-calendar" style="margin-top: 5px;">
+                                <label for="date_pick">选择日期:</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input id="date_pick" type="text" value="2015-04-01"/>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <button id="search" class="btn bg-primary">搜索</button>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <input id="date" type="text" value="2015-04-01"/>
-                        </div>
-                        <!--</div>-->
                     </div>
-                    <div class="col-md-3" style="alignment: center">
-                        <button id="search" class="btn btn-primary">搜索</button>
-                    </div>
+                    <div class="col-md-3" style="height: 50px"></div>
+
                     <hr width="0">
-                    <h3 class="text-info icon-air" id="market"> Market</h3>
-                    <label>市场行情</label>
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <label id="maxLimit0" style="-webkit-text-fill-color: red"></label>
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数下限&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <label id="minLimit0" style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <table class="table">
-                        <tr>
-                            <th class="text-center">Daily Volume</th>
-                            <th class="text-center">Surged Limit</th>
-                            <th class="text-center">Decline Limit</th>
-                            <th class="text-center">5% Offset Increase</th>
-                            <th class="text-center">5% Offset Decrease</th>
-                            <th class="text-center">Change Increase > 5%</th>
-                            <th class="text-center">Change Decrease < 5%</th>
-                        </tr>
-                        <tr class="text-center">
-                            <td><label id="DV0">-</label></td>
-                            <td><label id="SL0" style="-webkit-text-fill-color: red">-</label></td>
-                            <td><label id="DL0" style="-webkit-text-fill-color: green">-</label></td>
-                            <td><label id="OI0" style="-webkit-text-fill-color: red">-</label></td>
-                            <td><label id="OD0" style="-webkit-text-fill-color: green">-</label></td>
-                            <td><label id="CI0" style="-webkit-text-fill-color: red">-</label></td>
-                            <td><label id="CD0" style="-webkit-text-fill-color: green">-</label></td>
-                        </tr>
-                    </table>
-                    <br \>
+
+                    <div class="row row-pb-md animate-box">
+                        <h3 class="text-info icon-air" id="market"> 市场</h3>
+                        <label>市场行情</label>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label id="maxLimit0" style="-webkit-text-fill-color: red"></label>
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数下限&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label id="minLimit0" style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <table class="table">
+                            <tr>
+                                <th class="text-center">日交易量</th>
+                                <th class="text-center">涨停股票数</th>
+                                <th class="text-center">跌停股票数</th>
+                                <th class="text-center">涨幅 > 5%股票数</th>
+                                <th class="text-center">跌幅 > 5%股票数</th>
+                                <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
+                            </tr>
+                            <tr class="text-center">
+                                <td><label id="DV0">-</label></td>
+                                <td><label id="SL0" style="-webkit-text-fill-color: red">-</label></td>
+                                <td><label id="DL0" style="-webkit-text-fill-color: green">-</label></td>
+                                <td><label id="OI0" style="-webkit-text-fill-color: red">-</label></td>
+                                <td><label id="OD0" style="-webkit-text-fill-color: green">-</label></td>
+                                <td><label id="CI0" style="-webkit-text-fill-color: red">-</label></td>
+                                <td><label id="CD0" style="-webkit-text-fill-color: green">-</label></td>
+                            </tr>
+                        </table>
+                        <br \>
+                    </div>
 
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="motherboard">
-                            <h3 class="text-info icon-cloud" id="main"> Motherboard</h3>
+                            <h3 class="text-info icon-cloud" id="main"> 主板</h3>
                             <label>主板</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit1" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -247,17 +253,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN1">-</label></td>
                                     <td><label id="DV1">-</label></td>
                                     <td><label id="SL1" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL1" style="-webkit-text-fill-color: green">-</label></td>
@@ -273,7 +277,7 @@
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="small">
-                            <h3 class="text-info icon-grooveshark"> Small Block</h3>
+                            <h3 class="text-info icon-grooveshark"> 中小板</h3>
                             <label>中小板</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit2" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -282,17 +286,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN2">-</label></td>
                                     <td><label id="DV2">-</label></td>
                                     <td><label id="SL2" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL2" style="-webkit-text-fill-color: green">-</label></td>
@@ -308,7 +310,7 @@
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="gem">
-                            <h3 class="text-info icon-cloud2"> Gem Block</h3>
+                            <h3 class="text-info icon-cloud2"> 创业板</h3>
                             <label>创业板</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit3" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -317,17 +319,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN3">-</label></td>
                                     <td><label id="DV3">-</label></td>
                                     <td><label id="SL3" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL3" style="-webkit-text-fill-color: green">-</label></td>
@@ -343,7 +343,7 @@
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="industry">
-                            <h3 class="text-info icon-share2"> Industry Block</h3>
+                            <h3 class="text-info icon-share2"> 行业板块</h3>
                             <label>行业板块</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit4" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -352,17 +352,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN4">-</label></td>
                                     <td><label id="DV4" style="-webkit-text-fill-color: rgb(250,225,170)">-</label></td>
                                     <td><label id="SL4" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL4" style="-webkit-text-fill-color: green">-</label></td>
@@ -378,7 +376,7 @@
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="conception">
-                            <h3 class="text-info icon-untag"> Conception Block</h3>
+                            <h3 class="text-info icon-untag"> 概念板块</h3>
                             <label>概念板块</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit5" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -387,17 +385,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN5">-</label></td>
                                     <td><label id="DV5" style="-webkit-text-fill-color: rgb(250,225,170)">-</label></td>
                                     <td><label id="SL5" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL5" style="-webkit-text-fill-color: green">-</label></td>
@@ -413,7 +409,7 @@
 
                     <div class="row row-pb-md animate-box">
                         <div class="animate-box" id="location">
-                            <h3 class="text-info icon-share"> Location Block</h3>
+                            <h3 class="text-info icon-share"> 地域板块</h3>
                             <label>地域板块</label>
                             <label>&nbsp;&nbsp;&nbsp;&nbsp;每日股票计数上限&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label id="maxLimit6" style="-webkit-text-fill-color: red">&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -422,17 +418,15 @@
                                    style="-webkit-text-fill-color: green">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <table class="table">
                                 <tr>
-                                    <th class="text-center">Block Name</th>
-                                    <th class="text-center">Daily Volume</th>
-                                    <th class="text-center">Surged Limit</th>
-                                    <th class="text-center">Decline Limit</th>
-                                    <th class="text-center">5% Offset Increase</th>
-                                    <th class="text-center">5% Offset Decrease</th>
-                                    <th class="text-center">Change Increase > 5%</th>
-                                    <th class="text-center">Change Decrease < 5%</th>
+                                    <th class="text-center">日交易量</th>
+                                    <th class="text-center">涨停股票数</th>
+                                    <th class="text-center">跌停股票数</th>
+                                    <th class="text-center">涨幅 > 5%股票数</th>
+                                    <th class="text-center">跌幅 > 5%股票数</th>
+                                    <th class="text-center">开盘-收盘 > 5%上一交易日收盘价</th>
+                                    <th class="text-center">开盘-收盘 < -5%上一交易日收盘价</th>
                                 </tr>
                                 <tr class="text-center">
-                                    <td><label id="BN6">-</label></td>
                                     <td><label id="DV6" style="-webkit-text-fill-color: rgb(250,225,170)">-</label></td>
                                     <td><label id="SL6" style="-webkit-text-fill-color: red">-</label></td>
                                     <td><label id="DL6" style="-webkit-text-fill-color: green">-</label></td>
