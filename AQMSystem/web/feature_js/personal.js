@@ -1,6 +1,6 @@
 function addTableLine(stockList) {
     if(stockList.length>0){
-        $("#user_collect").style.display='table';
+        $("#user_collect").style.display='block';
         $("#hint1").style.display='none';
     }
     else{
@@ -53,7 +53,7 @@ $().ready(function () {
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "已登出!",
+                confirmButtonText: "登出！",
                 closeOnConfirm: true
             },
             function(){

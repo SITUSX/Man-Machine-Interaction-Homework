@@ -131,7 +131,7 @@
                 <div class="col-md-12 col-md-offset-0 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <h1 class="mb30">Compare Stocks</h1>
+                            <h1 class="mb30">两只股票，对比一览</h1>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
 
                         <hr width="0px">
                         <div class="col-md-5"></div>
-                        <button type="submit" class="btn btn-primary" id="compare" onclick="showResult()">对比</button>
+                        <button type="submit" class="btn bg-primary" id="compare" onclick="showResult()">对比</button>
                     </div>
                 </div>
 
@@ -229,8 +229,8 @@
             <div class="row animate-box">
                 <div class="fh5co-heading">
                     <div>
-
-                        <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
                             <h3 class="text-info">Proportion</h3>
                             <span><label id="first_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>
                                 与<label id="second_stock" style="-webkit-text-fill-color: rgb(143, 143,225)"></label>股票数据比值</span>
@@ -239,13 +239,13 @@
                         </div>
 
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <h3 class="text-info">Closing Price</h3>
                         <span>收盘价对比</span>
                         <div id="close" style="width: 500px;height: 400px;">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <h3 class="text-info">Log Return</h3>
                         <span>对数收益率对比</span>
                         <div id="log" style="width: 500px;height: 400px;">
@@ -256,26 +256,17 @@
         </div>
     </div>
 
-    <footer id="fh5co-footer" role="contentinfo">
+    <footer>
         <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">Copyright &copy; Nanjing University
-                        </small>
-                    </p>
-                    <p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                    </ul>
-                    </p>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>AQM System</strong></h4>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Nanjing University</p>
                 </div>
             </div>
-
         </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
 </div>
 

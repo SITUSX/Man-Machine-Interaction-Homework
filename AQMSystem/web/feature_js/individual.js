@@ -311,7 +311,7 @@ $().ready(function () {
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "已登出!",
+                confirmButtonText: "登出!",
                 closeOnConfirm: true
             },
             function () {
