@@ -165,17 +165,21 @@
 
             <!--<div class="col-md-push-0 animate-box">-->
             <!--<div class="fh5co-contact-info">-->
-            <div class="row form-group">
+
+            <div class="row form-group" style="z-index: 9999">
 
                 <div class="col-md-3">
                 </div>
                 <div class="col-md-3 text-center fh5co-heading  animate-box">
-                    <div id="list_root_one" onclick="hideDate()"></div>
+                    <div id="list_root_one">
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="submit" id="search" class="btn bg-primary"> 搜索</button>
-                </div>
+                <!--<div class="col-md-3">-->
+                    <!--<button type="submit" id="search" class="btn bg-primary"> 搜索</button>-->
+                <!--</div>-->
+                <p>请输入股票代码或名称</p>
             </div>
+
             <div id="date_choose">
                 <!--<div class="col-md-8">-->
                 <hr width="100">
@@ -194,25 +198,20 @@
                     <input type="text" id="end" value="2017-05-31">
                 </div>
                 <!--</div>-->
-
-                <div class="col-md-2 text-center">
-                    <button id="paint_draw" class="btn bg-primary"> 查询</button>
+                <div class="col-md-2 text-right">
+                    <button type="submit" id="search" class="btn bg-primary"> 搜索</button>
                 </div>
+                <!--<div class="col-md-2 text-center">-->
+                    <!--<button id="paint_draw" class="btn bg-primary"> 查询</button>-->
+                <!--</div>-->
 
             </div>
             <script>
-                function hideDate() {
-                    document.getElementById("date_choose").style.display = 'none';
-                }
-
-                function showDate() {
-                    document.getElementById("date_choose").style.display = 'block';
-                }
             </script>
             <!--</div>-->
             <!--</div>-->
             <!--</div>-->
-            <div onclick="showDate()">
+            <div>
                 <hr width="10000">
                 <h2 class="text-info icon-image"> 详情</h2>
                 <h3 id="stock_name" class="text-info2"> 股票名称</h3>
@@ -220,7 +219,7 @@
             <div class="col-md-2 text-center">
                 <label type="text" id="stock_code"> 股票代码</label>
             </div>
-            <div class="col-md-10" onclick="showDate()">
+            <div class="col-md-10">
                 <label>交易价 : </label>
                 <label id="trade" style="-webkit-text-fill-color: rgb(250,225,170)"></label>
             </div>
@@ -261,26 +260,17 @@
     </div>
 
 
-    <footer id="fh5co-footer" role="contentinfo">
+    <footer>
         <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">Copyright &copy; Nanjing University
-                        </small>
-                    </p>
-                    <p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                    </ul>
-                    </p>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>AQM System</strong></h4>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Nanjing University</p>
                 </div>
             </div>
-
         </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
 </div>
 
