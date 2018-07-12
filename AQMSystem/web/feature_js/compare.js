@@ -268,8 +268,8 @@ function compare() {
     ||(parseInt(startArray[0]) === parseInt(finalArray[0]) && parseInt(startArray[1]) > parseInt(finalArray[1]))
     ||(parseInt(startArray[0]) === parseInt(finalArray[0]) && parseInt(startArray[1]) === parseInt(finalArray[1]) && parseInt(startArray[2]) > parseInt(finalArray[2])))
         swal({
-            title: "Error!",
-            text: "Start Date must be earlier than final Date!",
+            title: "日期错误!",
+            text: "开始日期必须早于结束日期!",
             type: "error"
         });
 
@@ -316,9 +316,9 @@ function compare() {
         },
         error: function () {
             swal({
-                title: "Oops...",
-                text: "This stock -- " + fname + "has no data!",
-                type: "error"
+                title: "警告",
+                text: "这只股票 -- " + fname + "没有数据!",
+                type: "warning"
             });
         }
     });
@@ -346,9 +346,9 @@ function compare() {
         },
         error: function () {
             swal({
-                title: "Oops...",
-                text: "This stock -- " + sname + " has no data!",
-                type: "error"
+                title: "警告",
+                text: "这只股票 -- " + sname + " 没有数据!",
+                type: "warning"
             });
         }
     });

@@ -135,9 +135,9 @@ $().ready(function () {
     $("#search").click(function () {
         if(onloading){
             swal({
-                title: "Oops...",
+                title: "加载中...",
                 text: "当前数据未加载完!",
-                type: "error"
+                type: "warning"
             });
             return;
         }
@@ -171,8 +171,8 @@ $().ready(function () {
             },
             error: function () {
                 swal({
-                    title: "Oops...",
-                    text: "Network Error!",
+                    title: "网络错误",
+                    text: "请重试!",
                     type: "error"
                 });
                 return;

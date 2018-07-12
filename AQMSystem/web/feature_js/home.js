@@ -36,12 +36,12 @@ $().ready(function () {
     });
     $("#logout").click(function () {
         swal({
-                title: "Are you sure to Logout?",
-                text: "You have to Login again!",
+                title: "确认登出?",
+                text: "你需要重新登录!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, Logout!",
+                confirmButtonText: "已登出!",
                 closeOnConfirm: true
             },
             function () {

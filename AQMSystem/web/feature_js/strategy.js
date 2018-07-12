@@ -458,8 +458,8 @@ function strategy(index, stock_pool, forming_period, holding_period, begin, end)
                 },
                 error: function () {
                     swal({
-                        title: "Oops...",
-                        text: "Network Error!",
+                        title: "网络错误",
+                        text: "请重试!",
                         type: "error"
                     });
                 }
@@ -493,8 +493,8 @@ function strategy(index, stock_pool, forming_period, holding_period, begin, end)
                 },
                 error: function () {
                     swal({
-                        title: "Oops...",
-                        text: "Network Error!",
+                        title: "网络错误",
+                        text: "请重试!",
                         type: "error"
                     });
                 }
@@ -541,8 +541,8 @@ function strategy(index, stock_pool, forming_period, holding_period, begin, end)
                 },
                 error: function () {
                     swal({
-                        title: "Oops...",
-                        text: "Network Error!",
+                        title: "网络错误",
+                        text: "请重试!",
                         type: "error"
                     });
                     onloading[index] = false;
@@ -603,7 +603,7 @@ $().ready(function () {
     $("#mean_check").click(function () {
         if(onloading[0]){
             swal({
-                title: "Oops...",
+                title: "加载中...",
                 text: "Mean当前数据未加载完!",
                 type: "warning"
             });
@@ -618,7 +618,7 @@ $().ready(function () {
     $("#momentum_check").click(function () {
         if(onloading[1]){
             swal({
-                title: "Oops...",
+                title: "加载中...",
                 text: "Momentum当前数据未加载完!",
                 type: "warning"
             });return;
@@ -632,7 +632,7 @@ $().ready(function () {
     $("#reverse_check").click(function () {
         if(onloading[2]){
             swal({
-                title: "Oops...",
+                title: "加载中...",
                 text: "Reverse当前数据未加载完!",
                 type: "warning"
             });
@@ -647,7 +647,7 @@ $().ready(function () {
     $("#minimum_check").click(function () {
         if(onloading[3]){
             swal({
-                title: "Oops...",
+                title: "加载中...",
                 text: "Minimum当前数据未加载完!",
                 type: "warning"
             });

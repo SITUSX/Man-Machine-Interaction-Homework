@@ -20,7 +20,7 @@ $().ready(function () {
 });
 
 function judgeCollect(code) {
-    if (checkCookie() == "true") {
+    if (checkCookie() === "true") {
         let username = getCookie('username');
         $.ajax({
             url: "/user/isCollected.form",
@@ -37,8 +37,8 @@ function judgeCollect(code) {
             },
             error: function () {
                 swal({
-                    title: "Oops...",
-                    text: "Network Error!",
+                    title: "网络错误",
+                    text: "请重试!",
                     type: "error"
                 });
             }
@@ -70,9 +70,9 @@ function search() {
         },
         error: function () {
             swal({
-                title: "Oops...",
-                text: "This stock has no data!",
-                type: "error"
+                title: "警告",
+                text: "这只股票没有数据!",
+                type: "warning"
             });
         }
     });
@@ -306,12 +306,12 @@ $().ready(function () {
     }
     $("#logout").click(function () {
         swal({
-                title: "Are you sure to Logout?",
-                text: "You have to Login again!",
+                title: "确认登出?",
+                text: "你需要重新登录!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, Logout!",
+                confirmButtonText: "已登出!",
                 closeOnConfirm: true
             },
             function () {
@@ -339,11 +339,11 @@ function showWelcome(userName) {
 }
 
 function collect() {
-    if (checkCookie() == "false") {
+    if (checkCookie() === "false") {
         swal({
-            title: "Guest",
-            text: "Please Login!",
-            type: "error"
+            title: "游客",
+            text: "请先登录!",
+            type: "warning"
         });
         return;
     } else {
@@ -360,33 +360,33 @@ function collect() {
                 success: function (result) {
                     if (result)
                         swal({
-                            title: "Add",
-                            text: "Success!",
+                            title: "添加收藏",
+                            text: "成功!",
                             type: "success"
                         });
                     else
                         swal({
-                            title: "Add",
-                            text: "Fail!",
+                            title: "添加收藏",
+                            text: "失败!",
                             type: "error"
                         });
                 },
                 error: function () {
                     swal({
-                        title: "Oops...",
-                        text: "Network Error!",
+                        title: "网络错误",
+                        text: "请重试!",
                         type: "error"
                     });
                 }
             });
         } else {
             swal({
-                    title: "Are you sure?",
-                    text: "Delete this stock from your collected stocks!",
+                    title: "确认删除?",
+                    text: "将会从你的收藏列表移除!",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, delete it!",
+                    confirmButtonText: "删除!",
                     closeOnConfirm: false
                 },
                 function () {
@@ -400,14 +400,14 @@ function collect() {
                         success: function (result) {
                             if (result)
                                 swal({
-                                    title: "Delete",
-                                    text: "Success!",
+                                    title: "删除收藏",
+                                    text: "成功!",
                                     type: "success"
                                 });
                             else
                                 swal({
-                                    title: "Delete",
-                                    text: "Fail!",
+                                    title: "删除收藏",
+                                    text: "失败!",
                                     type: "error"
                                 });
                         }

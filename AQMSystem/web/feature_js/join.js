@@ -6,16 +6,16 @@ $().ready(function () {
                 if (user_name.indexOf(' ') >= 0) {
                     //Error name cannot
                     swal({
-                        title: "Oops...",
-                        text: "Name cannot contain space",
+                        title: "格式错误",
+                        text: "姓名不能包含空格",
                         type: "error"
                     });
                     return
                 }
                 if (password.indexOf(' ') >= 0) {
                     swal({
-                        title: "Oops...",
-                        text: "Password cannot contain space",
+                        title: "格式错误",
+                        text: "密码不能包含空格",
                         type: "error"
                     });
                     return
@@ -23,7 +23,7 @@ $().ready(function () {
                 if (password != password_cfm) {
                     swal({
                         title: "Oops...",
-                        text: "Password is different!",
+                        text: "两次输入密码不同!",
                         type: "error"
                     });
                     return
@@ -31,7 +31,7 @@ $().ready(function () {
                 if (user_name == getCookie('username')){
                     swal({
                         title: "Oops...",
-                        text: "This user is already Exists!",
+                        text: "这个用户已存在!",
                         type: "error"
                     });
                     return
@@ -49,7 +49,7 @@ $().ready(function () {
                             login_suc();
                             swal({
                                 title: "Yeah!",
-                                text: "Signup Success! Welcome, " + getCookie('username'),
+                                text: "注册成功! 欢迎， " + getCookie('username'),
                                 type: "success"
                             });
                             window.history.go(-1);
@@ -57,7 +57,7 @@ $().ready(function () {
                         }else if(result=="user_exists"){
                             swal({
                                 title: "Oops...",
-                                text: "This user is already Exists!",
+                                text: "这个用户已存在!",
                                 type: "error"
                             });
                             return;

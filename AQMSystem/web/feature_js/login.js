@@ -3,9 +3,9 @@ $().ready(function () {
             if (checkCookie() == 'true') {
                 console.log(checkCookie());
                 swal({
-                    title: "You have Login!",
-                    text: "Please press ctrl+R/command+R to refresh the page!",
-                    type: "error"
+                    title: "你已经登录!",
+                    text: "请刷新页面!",
+                    type: "warning"
                 });
                 return
             }
@@ -14,16 +14,16 @@ $().ready(function () {
             if (user_name.indexOf(' ') >= 0) {
                 //Error name cannot
                 swal({
-                    title: "Oops...",
-                    text: "Name cannot contain space",
+                    title: "格式错误",
+                    text: "姓名不能包含空格！",
                     type: "error"
                 });
                 return
             }
             if (password.indexOf(' ') >= 0) {
                 swal({
-                    title: "Oops...",
-                    text: "Password cannot contain space",
+                    title: "格式错误",
+                    text: "密码不能包含空格！",
                     type: "error"
                 });
                 return
@@ -33,7 +33,7 @@ $().ready(function () {
                 // window.history.go(-1);
                 swal({
                     title: "Yeah!",
-                    text: "Login Success! Welcome, " + getCookie('username'),
+                    text: "登录成功! 欢迎， " + getCookie('username'),
                     type: "success"
                 },
                 function() {

@@ -48,14 +48,14 @@ function login(user_name, password, callback) {
             else if (result=="user_not_exists") {
                 swal({
                     title: "Oops...",
-                    text: "User not Exists!",
+                    text: "用户不存在!",
                     type: "error"
                 });
                 return;
             } else if(result=="password_error"){
                 swal({
                     title: "Oops...",
-                    text: "Password Error!",
+                    text: "密码错误!",
                     type: "error"
                 });
                 return;
