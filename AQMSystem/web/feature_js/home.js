@@ -40,6 +40,7 @@ $().ready(function () {
                 text: "你需要重新登录!",
                 type: "warning",
                 showCancelButton: true,
+                cancelButtonText: "取消",
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "登出!",
                 closeOnConfirm: true

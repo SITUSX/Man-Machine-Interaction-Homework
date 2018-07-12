@@ -1,23 +1,17 @@
 function addTableLine(stockList) {
-    if(stockList.length>0){
-        $("#user_collect").style.display='block';
-        $("#hint1").style.display='none';
-    }
-    else{
-        for(let i = 0; i < stockList.length; i++){
-            let stockNewestInfo = stockList[i];
-            $("#user_collect").append(
-                '<tr><th></th>' +
-                '<th class="text-center">' + stockNewestInfo.stock_code +'</th> ' +
-                '<th class="text-center">' + stockNewestInfo.stock_name +'</th> ' +
-                '<th class="text-center">' + stockNewestInfo.stock_range +'</th> ' +
-                '<th class="text-center">' + stockNewestInfo.open +'</th> ' +
-                '<th class="text-center">' + stockNewestInfo.trade +'</th> ' +
-                '<th class="text-center" style="-webkit-text-fill-color: red">' + stockNewestInfo.high +'</th> ' +
-                '<th class="text-center" style="-webkit-text-fill-color: green">' + stockNewestInfo.low +'</th> ' +
-                '<th class="text-center">' + stockNewestInfo.volume +'</th> ' +
-                '</tr>');
-        }
+    for(let i = 0; i < stockList.length; i++){
+        let stockNewestInfo = stockList[i];
+        $("#user_collect").append(
+            '<tr><th></th>' +
+            '<th class="text-center">' + stockNewestInfo.stock_code +'</th> ' +
+            '<th class="text-center">' + stockNewestInfo.stock_name +'</th> ' +
+            '<th class="text-center">' + stockNewestInfo.stock_range +'</th> ' +
+            '<th class="text-center">' + stockNewestInfo.open +'</th> ' +
+            '<th class="text-center">' + stockNewestInfo.trade +'</th> ' +
+            '<th class="text-center" style="-webkit-text-fill-color: red">' + stockNewestInfo.high +'</th> ' +
+            '<th class="text-center" style="-webkit-text-fill-color: green">' + stockNewestInfo.low +'</th> ' +
+            '<th class="text-center">' + stockNewestInfo.volume +'</th> ' +
+            '</tr>');
     }
 }
 
@@ -52,8 +46,9 @@ $().ready(function () {
                 text: "你需要重新登录!",
                 type: "warning",
                 showCancelButton: true,
+                cancelButtonText: "取消",
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "登出！",
+                confirmButtonText: "登出!",
                 closeOnConfirm: true
             },
             function(){
@@ -98,8 +93,6 @@ function predictFavouriteStocks(userName) {
                 $("#trade_"+[i]).text(stockNewestInfo.trade);
                 $("#volume_"+[i]).text(stockNewestInfo.volume);
             }
-            $("#hint2").style.display='none';
-            $("#predictFavourite").style.display='table';
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
