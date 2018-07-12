@@ -76,16 +76,16 @@
                 <div>
                     <div id="log" style="margin-left: 80%">
                         <div id="login_signup">
-                            <a href="login.html" class="btn btn-link link-watch popup-vimeo"> Login </a>
-                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> Join us </a>
+                            <a href="login.html" class="btn btn-link link-watch popup-vimeo"> 登录 </a>
+                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> 加入我们 </a>
                         </div>
                     </div>
 
                     <div id="welcome" style="margin-left: 75%">
-                        <label style="-webkit-text-fill-color: white">welcome ,</label>
+                        <label style="-webkit-text-fill-color: white">欢迎 ,</label>
                         <label id="user" style="-webkit-text-fill-color: rgb(195,228,242)"></label>
                         <label style="-webkit-text-fill-color: white">!</label>
-                        <button class="btn btn-logout" id="logout"> Logout</button>
+                        <button class="btn btn-logout" id="logout"> 登出</button>
                     </div>
                 </div>
                 <div class="col-xs-12 text-center">
@@ -151,7 +151,7 @@
                 <div class="col-md-12 col-md-offset-0 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <h1 class="mb30">Complete Stock Information </h1>
+                            <h1 class="mb30">股票信息，应有尽有</h1>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
             <!--<div class="fh5co-contact-info">-->
             <div class="row form-group">
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                 </div>
                 <div class="col-md-3 text-center fh5co-heading  animate-box">
                     <div id="list_root_one" onclick="hideDate()"></div>
@@ -180,15 +180,15 @@
                 <!--<div class="col-md-8">-->
                 <hr width="100">
 
-                <div class="col-md-3  text-center">
-                    <label for="begin" class="icon-calendar text-center">Start Date : </label>
+                <div class="col-md-3  text-right">
+                    <label for="begin" class="icon-calendar text-center">开始日期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="text" id="begin" value="2017-01-01">
                 </div>
 
-                <div class="col-md-3 text-center">
-                    <label for="end" class="icon-calendar">Final Date : </label>
+                <div class="col-md-3 text-right">
+                    <label for="end" class="icon-calendar">结束日期 : </label>
                 </div>
                 <div class="col-md-2">
                     <input type="text" id="end" value="2017-05-31">
@@ -214,14 +214,14 @@
             <!--</div>-->
             <div onclick="showDate()">
                 <hr width="10000">
-                <h2 class="text-info icon-image"> Information</h2>
-                <h3 id="stock_name" class="text-info2"> Stock Name</h3>
+                <h2 class="text-info icon-image"> 详情</h2>
+                <h3 id="stock_name" class="text-info2"> 股票名称</h3>
             </div>
             <div class="col-md-2 text-center">
-                <label type="text" id="stock_code"> stock code</label>
+                <label type="text" id="stock_code"> 股票代码</label>
             </div>
             <div class="col-md-10" onclick="showDate()">
-                <label>Trade : </label>
+                <label>交易价 : </label>
                 <label id="trade" style="-webkit-text-fill-color: rgb(250,225,170)"></label>
             </div>
             <div id="collect">
@@ -231,15 +231,15 @@
             </div>
             <br \>
             <div>
-                <span class="text-info2">Newest Quotes</span>
+                <span class="text-info2">最新报价</span>
                 <table class="table">
                     <tr>
-                        <th class="text-center">Stock Code</th>
-                        <th class="text-center">Opening Price</th>
-                        <th class="text-center">Highest Price</th>
-                        <th class="text-center">Lowest Price</th>
-                        <th class="text-center">Change Percent</th>
-                        <th class="text-center">Volume</th>
+                        <th class="text-center">股票代码</th>
+                        <th class="text-center">开盘价</th>
+                        <th class="text-center">最高价</th>
+                        <th class="text-center">最低价</th>
+                        <th class="text-center">涨跌幅(%)</th>
+                        <th class="text-center">交易量</th>
                     </tr>
                     <tr id="date01" class="text-center">
                         <td><label id="StockCode">-</label></td>
@@ -252,7 +252,7 @@
                 </table>
             </div>
             <div>
-                <span class="text-info2 icon-line-graph"> Quotes Map</span>
+                <span class="text-info2 icon-line-graph">报价图</span>
                 <br \>
                 <div id="KLine" class="center-block" style="width: 900px;height: 550px;">
                 </div>

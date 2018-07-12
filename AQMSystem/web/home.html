@@ -74,15 +74,15 @@
                     <div id="log" style="margin-left: 80%">
                         <div id="login_signup">
                             <a href="login.html" class="btn btn-link link-watch popup-vimeo"> 登录 </a>
-                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> 注册 </a>
+                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> 加入我们 </a>
                         </div>
                     </div>
 
                     <div id="welcome" style="margin-left: 75%">
-                        <label style="-webkit-text-fill-color: white">welcome ,</label>
+                        <label style="-webkit-text-fill-color: white">欢迎 ,</label>
                         <label id="user" style="-webkit-text-fill-color: rgb(195,228,242)"></label>
                         <label style="-webkit-text-fill-color: white">!</label>
-                        <button class="btn btn-logout" id="logout"> 注销</button>
+                        <button class="btn btn-logout" id="logout"> 登出</button>
                     </div>
                 </div>
 
@@ -149,7 +149,7 @@
                 <div class="col-md-12 col-md-offset-0 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <h1 class="mb30">Best Choice For You .</h1>
+                            <h1 class="mb30">大盘走向，整体一览</h1>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
 
     <div id="fh5co-services" class="fh5co-bg-section">
         <div class="container">
-            <h3 class="text-info">Market</h3>
+            <h3 class="text-info">整体市场行情</h3>
             <span>大盘走向</span>
             <div>
                 <div class="col-md-1"></div>
@@ -179,23 +179,29 @@
                 <div class="col-md-2">
                     <button id="cyb" class="btn btn-link">创业板指</button>
                 </div>
-                <hr width="100">
-                <div class="col-md-3 text-center">
-                    <label for="start" class="icon-calendar text-center">Start Date : </label>
+                <hr width="500px">
+                <div>
+                    <div class="col-md-3 text-right" style="width: 20%">
+                        <label for="start" class="icon-calendar"> 开始日期 : </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text" id="start" value="2017-01-01">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-3 text-right" style="width: 20%">
+                        <label for="final" class="icon-calendar"> 结束日期 : </label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" id="final" value="2017-05-31">
+                    </div>
+                </div>
+                <div class="col-md-2 text-right">
+                    <button id="draw" class="btn bg-primary"> 绘制</button>
                 </div>
 
-                <div class="col-md-2">
-                    <input type="text" id="start" value="2017-01-01">
-                </div>
-                <div class="col-md-3 text-center">
-                    <label for="final" class="icon-calendar">Final Date : </label>
-                </div>
-                <div class="col-md-2">
-                    <input type="text" id="final" value="2017-05-31">
-                </div>
-                <div class="col-md-2 text-center">
-                    <button id="draw" class="btn bg-primary"> Draw</button>
-                </div>
+                <hr width="100%">
 
                 <h4 id="name" style="-webkit-text-fill-color: rgb(143, 143,225); margin-left: 20%">name</h4>
                 <div style="width: 1000px;height: 500px" class="center-block" id="market">
@@ -219,27 +225,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <br \>
-                    <h4><strong>AQM System</strong>
-                    </h4>
-                    <p>Jiangsu Province China
-                        <br>Nanjing University</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i>150-6227-8989</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a
-                                href="mailto:name@example.com">979579683@qq.com</a>
-                        </li>
-                    </ul>
+                    <h4><strong>AQM System</strong></h4>
                     <hr class="small">
                     <p class="text-muted">Copyright &copy; Nanjing University</p>
-
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                    </ul>
-
                 </div>
             </div>
         </div>

@@ -1,17 +1,23 @@
 function addTableLine(stockList) {
-    for(let i = 0; i < stockList.length; i++){
-        let stockNewestInfo = stockList[i];
-        $("#user_collect").append(
-            '<tr><th></th>' +
-            '<th class="text-center">' + stockNewestInfo.stock_code +'</th> ' +
-            '<th class="text-center">' + stockNewestInfo.stock_name +'</th> ' +
-            '<th class="text-center">' + stockNewestInfo.stock_range +'</th> ' +
-            '<th class="text-center">' + stockNewestInfo.open +'</th> ' +
-            '<th class="text-center">' + stockNewestInfo.trade +'</th> ' +
-            '<th class="text-center" style="-webkit-text-fill-color: red">' + stockNewestInfo.high +'</th> ' +
-            '<th class="text-center" style="-webkit-text-fill-color: green">' + stockNewestInfo.low +'</th> ' +
-            '<th class="text-center">' + stockNewestInfo.volume +'</th> ' +
-            '</tr>');
+    if(stockList.length>0){
+        $("#user_collect").style.display='table';
+        $("#hint1").style.display='none';
+    }
+    else{
+        for(let i = 0; i < stockList.length; i++){
+            let stockNewestInfo = stockList[i];
+            $("#user_collect").append(
+                '<tr><th></th>' +
+                '<th class="text-center">' + stockNewestInfo.stock_code +'</th> ' +
+                '<th class="text-center">' + stockNewestInfo.stock_name +'</th> ' +
+                '<th class="text-center">' + stockNewestInfo.stock_range +'</th> ' +
+                '<th class="text-center">' + stockNewestInfo.open +'</th> ' +
+                '<th class="text-center">' + stockNewestInfo.trade +'</th> ' +
+                '<th class="text-center" style="-webkit-text-fill-color: red">' + stockNewestInfo.high +'</th> ' +
+                '<th class="text-center" style="-webkit-text-fill-color: green">' + stockNewestInfo.low +'</th> ' +
+                '<th class="text-center">' + stockNewestInfo.volume +'</th> ' +
+                '</tr>');
+        }
     }
 }
 
@@ -92,6 +98,8 @@ function predictFavouriteStocks(userName) {
                 $("#trade_"+[i]).text(stockNewestInfo.trade);
                 $("#volume_"+[i]).text(stockNewestInfo.volume);
             }
+            $("#hint2").style.display='none';
+            $("#predictFavourite").style.display='table';
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

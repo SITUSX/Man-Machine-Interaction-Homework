@@ -473,7 +473,7 @@ function pieChartPaint() {
     }
     let industryOption = {
         title: {
-            text: ' Industry Plate Distribution'
+            text: '行业板块分布'
         },
         tooltip: {
             trigger: 'item',
@@ -517,7 +517,7 @@ function pieChartPaint() {
     }
     let locationOption = {
         title: {
-            text: ' Location Plate Distribution'
+            text: '地区板块分布'
         },
         tooltip: {
             trigger: 'item',

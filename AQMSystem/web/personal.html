@@ -63,16 +63,16 @@
                 <div>
                     <div id="log" style="margin-left: 80%">
                         <div id="login_signup">
-                            <a href="login.html" class="btn btn-link link-watch popup-vimeo"> Login </a>
-                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> Join us </a>
+                            <a href="login.html" class="btn btn-link link-watch popup-vimeo"> 登录 </a>
+                            <a href="join.html" class="btn btn-link link-watch popup-vimeo"> 加入我们 </a>
                         </div>
                     </div>
 
                     <div id="welcome" style="margin-left: 75%">
-                        <label style="-webkit-text-fill-color: white">welcome ,</label>
+                        <label style="-webkit-text-fill-color: white">欢迎 ,</label>
                         <label id="user" style="-webkit-text-fill-color: rgb(195,228,242)"></label>
                         <label style="-webkit-text-fill-color: white">!</label>
-                        <button class="btn btn-logout" id="logout"> Logout </button>
+                        <button class="btn btn-logout" id="logout"> 登出 </button>
                     </div>
                 </div>
                 <div class="col-xs-12 text-center">
@@ -136,7 +136,7 @@
                 <div class="col-md-12 col-md-offset-0 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                            <h1 class="mb30">Your Stock Kingdom</h1>
+                            <h1 class="mb30">关注收藏，猜你喜欢</h1>
                         </div>
                     </div>
                 </div>
@@ -149,41 +149,47 @@
         <div class="container" id="collection">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                 <h2 class="text-info icon-star-outlined"> Collection</h2>
-                <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;- 你 收 藏 的 股 票 -</span>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;- 你 收 藏 的 股 票 -</p>
             </div>
-            <table id="user_collect" class="table">
+            <table id="user_collect" class="table" style="display: none">
                 <tr>
                     <th> </th>
-                    <th class="text-center">Stock Code</th>
-                    <th class="text-center">Stock Name</th>
-                    <th class="text-center">Change</th>
-                    <th class="text-center">Trade</th>
-                    <th class="text-center">Closing Price</th>
-                    <th class="text-center">Highest Price</th>
-                    <th class="text-center">Lowest Price</th>
-                    <th class="text-center">Stock Volume</th>
+                    <th class="text-center">股票代码</th>
+                    <th class="text-center">股票名称</th>
+                    <th class="text-center">涨跌幅(%)</th>
+                    <th class="text-center">交易价</th>
+                    <th class="text-center">收盘价</th>
+                    <th class="text-center">最高价</th>
+                    <th class="text-center">最低价</th>
+                    <th class="text-center">交易量</th>
                 </tr>
 
             </table>
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h4 id="hint1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;没有收藏的股票!</h4>
+            </div>
         </div>
+        <hr class="small">
         <div class="container" id = "like">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                <h2 class="text-info icon-star-outlined"> Recommend </h2>
-                <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;- 猜 你 喜 欢 -</span>
+                <h2 class="text-info icon-star-outlined"> Recommended </h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;- 猜 你 喜 欢 -</p>
             </div>
             <div>
-                <table id="predictFavourite" class="table" >
+
+                <table id="predictFavourite" class="table" style="display: none">
                     <tr>
-                        <th class="text-center" style="width: 150px"> Stock Code </th>
-                        <th class="text-center" style="width: 150px"> Stock Name </th>
-                        <th class="text-center" style="width: 150px"> Change(%) </th>
-                        <th class="text-center" style="width: 150px"> Open </th>
-                        <th class="text-center" style="width: 150px"> High </th>
-                        <th class="text-center" style="width: 150px"> Low </th>
-                        <th class="text-center" style="width: 150px"> Trade </th>
-                        <th class="text-center" style="width: 150px"> Volume </th>
+                        <th class="text-center" style="width: 150px"> 股票代码 </th>
+                        <th class="text-center" style="width: 150px"> 股票名称 </th>
+                        <th class="text-center" style="width: 150px"> 涨跌幅(%) </th>
+                        <th class="text-center" style="width: 150px"> 开盘价 </th>
+                        <th class="text-center" style="width: 150px"> 最高价 </th>
+                        <th class="text-center" style="width: 150px"> 最低价 </th>
+                        <th class="text-center" style="width: 150px"> 交易价 </th>
+                        <th class="text-center" style="width: 150px"> 交易量 </th>
                     </tr>
                     <tr>
                         <th class="text-center" style="width: 150px" id="code_0"></th>
@@ -286,31 +292,26 @@
                         <th class="text-center" style="width: 150px" id="volume_9"></th>
                     </tr>
                 </table>
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h4 id="hint2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;没有收藏的股票!</h4>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <footer id="fh5co-footer" role="contentinfo">
+    <footer>
         <div class="container">
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">Copyright &copy; Nanjing University
-                        </small>
-                    </p>
-                    <p>
-                    <ul class="fh5co-social-icons">
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                    </ul>
-                    </p>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>AQM System</strong></h4>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Nanjing University</p>
                 </div>
             </div>
-
         </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
 </div>
 
